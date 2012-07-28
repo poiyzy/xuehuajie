@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Xuehua</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <title><%= yield :page_title | "雪花街" %></title>
+  <link rel="shortcut icon" href="favicon.png" type="text/css" media="screen" charset="utf-8"/>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="bodyWrapper">
+     <div id="nav">
+       <div id="brand"><a><img src=""/></a> </div>
+        <div id="">
+          <%= yield :navigation %>
+        </div> 
+        <div id="search">
+          <input type="text" name="" value="search" id=""/>
+        </div>
+     </div>
+     <div id="containner">
+        <%= yield %>
+     </div>
+     <div id="footer">
+       
+     </div>
+  </div>
 </body>
 </html>

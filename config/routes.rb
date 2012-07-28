@@ -4,7 +4,10 @@ Xuehua::Application.routes.draw do
     get 'signin' => 'devise/sessions#new', :as => :new_user_session
     post 'signin' => 'devise/sessions#create', :as => :user_session
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
-    get 'signup' => "devise/registration#new", :as => :new_user_registration
+    get 'signup' => "devise/registrations#new", :as => :new_user_registration
+    post 'signup' => "devise/registrations#new", :as => :user_registration
+    get '/users/cancle' => "devise/registrations#cancel", :as => :cancel_user_registration
+    get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
   resources :posts
 

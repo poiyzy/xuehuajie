@@ -3,8 +3,9 @@
 <head>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <title><%= yield :page_title | "雪花街" %></title>
-  <link rel="shortcut icon" href="favicon.png" type="text/css" media="screen" charset="utf-8"/>
+  <title><%= yield(:page_title).empty? ? "雪花街" : yield(:page_title)  %></title>
+  <%= favicon_link_tag "favicon.ico" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,6 +20,13 @@
         </div>
      </div>
      <div id="containner">
+       <div id="flash">
+         <% flash.each do |name, msg| %>
+           <div class="<%= name %>">
+             <%= msg %>
+           </div>
+         <% end %>
+       </div>
         <%= yield %>
      </div>
      <div id="footer">

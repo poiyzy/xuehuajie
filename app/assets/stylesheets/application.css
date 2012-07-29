@@ -5,13 +5,56 @@
 
 *{padding: 0px;margin:0px;}
 #bodyWrapper{background-image: url("/assets/main-bg.jpg");}
+
+
 #nav{position:fixed;background: #000;right: 0;left: 0;height: 36px;top:0;z-index: 10000;}
 #brand{position:absolute;width:60px;height:36px;background:#fff;}
 #search{float: right; background: #fff;}
+
+
 #containner{position:relative; margin-top:36px; }
-#signin{margin:0 auto; width:600px;margin-top:10px; margin-bottom:160px;}
-#signin .ppt{width:600px;height:200px; background: #fff;}
-#footer{position:relative; left: 0;right: 0; bottom: 0; height: 40px;}
+
+
+
+#signin{margin:0 auto;margin-top:10px; margin-bottom:160px; float:right;}
+#signin form{ width:300px; padding-top:33px;}
+#signin input{ width:180px;margin-left: 20px;}
+#signin label{ width:70px;}
+#signin p{display: none;}
+#remember_me{padding-left:75px;margin-bottom:18px;}
+#signin #user_remember_me{width:auto;display: inline-block;
+
+
+-webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+
+
+}
+#signin #label_remember_me{width:150px;display: inline-block;}
+form h2{border-bottom: 1px solid #CCC;
+	margin: -15px -20px 20px;
+	text-indent: 20px;
+	height: 40px;
+	line-height: 40px;
+	}
+
+
+
+#footer{position:relative; left: 0;right: 0; bottom: 0; height: 40px;clear:both;}
 #footer li{float: left; list-style: none;}
 
 

@@ -4,6 +4,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <title><%= yield :page_title || "雪花街" %></title>
+  <%= yield :head %>
   <link rel="shortcut icon" href="favicon.png" type="text/css" media="screen" charset="utf-8"/>
   <%= csrf_meta_tags %>
 </head>

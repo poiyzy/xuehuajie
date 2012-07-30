@@ -196,9 +196,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   capistrano
   capybara
-  bootstrap-sass
   coffee-rails (~> 3.2.1)
   database_cleaner (>= 0.6.7)
   devise

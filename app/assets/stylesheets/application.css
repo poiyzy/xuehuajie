@@ -12,9 +12,9 @@
 #search{float: right; background: #fff;}
 
 
-#containner{position:relative; margin-top:36px; }
+#containner{position:relative;}
 
-
+/*-------------------------signin form---------------------------*/
 
 #signin{margin:0 auto;margin-top:10px; margin-bottom:160px; float:right;}
 #signin form{ width:280px; padding-top:33px;}
@@ -25,13 +25,13 @@
 /*checkbox remember*/
 #remember_me{padding-left:70px;margin-bottom:18px;font-size: 13px;}
 #signin #user_remember_me{display:none;}
-
 .check{display:inline-block;padding-left:18px; height:16px; background: url("/assets/cc/checkbox.png") no-repeat;}
 .check:hover{ cursor: pointer;}
 .checked{background-position: 0px -16px;}
-
 #remember_me a{float: right;margin-right: 15px;font-size: 11px;}
 
+/*btn*/
+#signin .btn{width: 140px;margin-left: 70px;}
 
 
 
@@ -42,7 +42,7 @@ form h2{border-bottom: 1px solid #CCC;
 	line-height: 40px;
 	}
 
-
+/*-------------------------signin form---------------------------*/
 
 #footer{position:relative; left: 0;right: 0; bottom: 0; height: 40px;clear:both;}
 #footer li{float: left; list-style: none;}

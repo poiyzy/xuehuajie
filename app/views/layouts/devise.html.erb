@@ -3,24 +3,13 @@
 <head>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <title><%= yield(:page_title).empty? ? "雪花街" : yield(:page_title)  %></title>
+  <title><%= yield(:page_title) || "雪花街" %></title>
   <%= favicon_link_tag "favicon.ico" %>
-	<%=yield :head%>
-
+  <%= yield :head %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="bodyWrapper">
-     <div id="nav">
-       <div id="brand"><a><img src=""/></a> </div>
-        <div id="">
-          <%= yield :navigation %>
-        </div> 
-        <div id="search">
-          <input type="text" name="" value="search" id=""/>
-        </div>
-     </div>
-     <div id="containner">
        <div id="flash">
          <% flash.each do |name, msg| %>
            <div class="<%= name %>">
@@ -28,6 +17,7 @@
            </div>
          <% end %>
        </div>
+     <div id="containner">
         <%= yield %>
      </div>
      <div id="footer">

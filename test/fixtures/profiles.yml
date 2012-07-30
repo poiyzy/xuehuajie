@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+mato:
+  user_id: 22
+  image_url: picture1.jpg
+  image_url_middle: picture1.jpg
+
+  image_url_small: picture1.jpg
+
+  gender: male
+  birthday: 2012-07-29
+  bio: MyText
+  user_name: mato
+  follower_num: 123
+  heat: 333
+  searchable: true
+  location: ChongQing
+  account_setted: false
+
+two:
+  user_id: 1
+  image_url: MyString
+  image_url_middle: MyString
+  image_url_small: MyString
+  gender: MyString
+  birthday: 2012-07-29
+  bio: MyText
+  user_name: MyString
+  follower_num: 1
+  heat: 1
+  searchable: false
+  location: MyString
+  account_setted: false

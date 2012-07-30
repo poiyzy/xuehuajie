@@ -1,7 +1,13 @@
 Xuehua::Application.routes.draw do
+  get "profiles/show"
+
+  get "profiles/edit"
+
+  get "profiles/update"
+
   devise_for :users, :skip => [:sessions,:registration]
   devise_scope :user do
-    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    get '/' => 'devise/sessions#new', :as => :new_user_session
     post 'signin' => 'devise/sessions#create', :as => :user_session
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
     get 'signup' => "devise/registrations#new", :as => :new_user_registration
@@ -10,7 +16,10 @@ Xuehua::Application.routes.draw do
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
   resources :posts
+  get "/home" => "home#index"
 
+  resource :profile, :only => [:edit,:update]
+  resources :profiles, :only => [:show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,9 +67,6 @@ Xuehua::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

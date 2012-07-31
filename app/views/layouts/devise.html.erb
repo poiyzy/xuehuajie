@@ -5,6 +5,7 @@
   <%= javascript_include_tag "application" %>
   <title><%= yield(:page_title) || "雪花街" %></title>
   <%= favicon_link_tag "favicon.ico" %>
+  <%= yield :head %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,11 +17,21 @@
            </div>
          <% end %>
     </div>
+       </div>
      <div id="containner">
         <%= yield %>
      </div>
      <div id="footer">
-       
+     	<ul>
+     		<li><a href="#">关于</a></li>
+     		<li><a href="#">游戏</a></li>
+     		<li><a href="#">手机</a></li>
+     		<li><a href="#">客服帮忙</a></li>
+     		<li><a href="#">隐私</a></li>
+     	</ul>   
+     	
+       人人网©2012
+北京千橡网景科技发展有限公司：文网文[2009]169号·京ICP证090254号·京公网安备110000000009号·甲测资字11002066·文化部监督电子邮箱：wlwh@vip.sina.com
      </div>
   </div>
 </body>

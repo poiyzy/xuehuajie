@@ -2,9 +2,9 @@
 <%= javascript_include_tag "signin" %>
 <% end -%>
 
-<!---  for pic   -->
+<!---  for signin background -->
 
-<div id="pic"><%= link_to "zhuce" , new_user_registration_path %>  </div>
+<div id="signin_bg"><%= link_to "zhuce" , new_user_registration_path %>  </div>
 
 
 <!---  for signin form   -->
@@ -16,13 +16,11 @@
 		  <div class="control-group">
 			  <%= f.label :email,"账号" ,:class => "control-label"  %>
 			  <%= f.email_field :email ,:class => "controls" ,:value => "邮箱"%>
-			  <p class="help-block">Supporting help text</p>
 		  </div>
 		
 		  <div class="control-group">
 		  	<%= f.label :password,"密码" ,:class => "control-label" %>
 		  	<%= f.password_field :password ,:class => "controls" %>
-		  	<p class="help-block">Supporting help text</p>
 		  </div>
 		
 		  <% if devise_mapping.rememberable? -%>

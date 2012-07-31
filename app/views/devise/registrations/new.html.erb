@@ -3,28 +3,47 @@
 <%= javascript_include_tag "signup" %>
 <% end -%>
 
+<!---  for sign background -->
 
-
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-	<div class="control-group">
-		<%= f.label :email %>
-	    <%= f.email_field :email %>
-	</div>
-	<div class="control-group">
-		<%= f.label :password %>
-	  <%= f.password_field :password %>
-	</div>
-	<div class="control-group">
-		  <%= f.label :password_confirmation %>
-	  <%= f.password_field :password_confirmation %>
+<div id="signup_bg"><%= link_to "denglu" , new_user_registration_path %>  </div>
+<div id="signup">
+	<h2>注册</h2>
 	
-	</div>
-	  
-	
-	  <div><%= f.submit "Sign up" %></div>
-<% end %>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:class => "well form-horizontal"}) do |f| %>
+	  <%= devise_error_messages! %>
+		<div class="control-group">
+			<%= f.label :email,"账号",:class => "control-label"  %>
+		    <%= f.email_field :email,:class => "controls" ,:value => "邮箱"%>
+		    <span class="yes_or_no"></span>
+		    <div class="invalid">
+		    	<div class="invalid_head"></div>
+		    	<div class="invalid_body">请输入邮箱</div>
+		    </div>
+		</div>
+		<div class="control-group">
+			<%= f.label :password,"密码",:class => "control-label"  %>
+		  <%= f.password_field :password,:class => "controls"  %>
+		  <span class="yes_or_no"></span>
+		   <div class="invalid">
+		    	<div class="invalid_head"></div>
+		    	<div class="invalid_body">请输入一个密码</div>
+		    </div>
+		</div>
+		<div class="control-group">
+			  <%= f.label :password_confirmation,"密码确认",:class => "control-label"  %>
+		  <%= f.password_field :password_confirmation ,:class => "controls" %>
+		  <span class="yes_or_no"></span>
+			 <div class="invalid">
+		    	<div class="invalid_head"></div>
+		    	<div class="invalid_body">请再次输入密码</div>
+		    </div>
+		</div>
+		  
+		
+		  <div><%= f.submit "注册" ,:class => "btn btn-primary" %></div>
+	<% end %>
+		
+</div>
 
-<%= render "devise/shared/links" %>
+
+

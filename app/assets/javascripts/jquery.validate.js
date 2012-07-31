@@ -663,7 +663,7 @@ $.extend($.validator, {
 			}
 			this.toHide = this.toHide.not( this.toShow );
 			this.hideErrors();
-			this.addWrapper( this.toShow ).show();
+			this.addWrapper( this.toShow ).hide();
 		},
 
 		validElements: function() {
@@ -695,7 +695,7 @@ $.extend($.validator, {
 				if ( this.settings.wrapper ) {
 					// make sure the element is visible, even in IE
 					// actually showing the wrapped element is handled elsewhere
-					label = label.hide().show().wrap("<" + this.settings.wrapper + "/>").parent();
+					label = label.hide().hide().wrap("<" + this.settings.wrapper + "/>").parent();
 				}
 				if ( !this.labelContainer.append(label).length ) {
 					if ( this.settings.errorPlacement ) {

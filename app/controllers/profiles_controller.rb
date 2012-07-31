@@ -6,10 +6,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    
+    @profile = current_user.profile || Profile.new 
+
   end
 
   def update
-    @user = current_user 
+    @profile = params[:profile]
+    
   end
 end

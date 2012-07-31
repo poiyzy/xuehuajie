@@ -1,0 +1,51 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+    <%= f.label :gender %><br />
+    <%= f.radio_button :gender ,"male",:id => "radio1" %>
+    <%= label_tag  "男"%>
+    <%= f.radio_button :gender ,"female",:id => "radio2" %>
+    <%= label_tag  "女"%>
+<p>
+  <b>生日</b>
+  <%=f.date_select :birthday ,:start_year => Time.now.year - 100, :end_year => Time.now.year - 8, :default => Time.now - 20.year %>
+
+</p>
+<p>
+    <%= f.label :user_name ,"姓名"%><br />
+    <%= f.text_field :user_name %>
+</p>
+<p>
+    <%= f.label :bio ,"个人简洁"%><br />
+    <%= f.text_area :bio, :cols => 20, :rows => 10 %>
+</p>
+<p>
+  <b>地域</b>
+      <%= state_select(:user, :state,
+       :country => :china,
+       :countries => [:china],
+       :update => 'city').html_safe %>
+     <%=  city_select_tag( :city ,{ :country => :china, :state => :beijing}).html_safe %>
+    </p>
+
+<p>
+    <%= f.label :image_url_path,"上传头型"%><br />
+  <%= @profile.bio %>
+</p>
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+    <%= f.submit "重置表单", :type => :reset  %>
+  </div>
+<% end %>

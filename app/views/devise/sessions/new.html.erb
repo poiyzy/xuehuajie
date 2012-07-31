@@ -1,6 +1,13 @@
 <% content_for :head do %>
-<%= javascript_include_tag "kkk" %>
+<%= javascript_include_tag "signin" %>
 <% end -%>
+
+<!---  for signin background -->
+
+<div id="signin_bg"><%= link_to "zhuce" , new_user_registration_path %>  </div>
+
+
+<!---  for signin form   -->
 <div id="signin">
 			
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well form-horizontal"}) do |f| %>
@@ -9,27 +16,28 @@
 		  <div class="control-group">
 			  <%= f.label :email,"账号" ,:class => "control-label"  %>
 			  <%= f.email_field :email ,:class => "controls" ,:value => "邮箱"%>
-			  <p class="help-block">Supporting help text</p>
 		  </div>
 		
 		  <div class="control-group">
 		  	<%= f.label :password,"密码" ,:class => "control-label" %>
 		  	<%= f.password_field :password ,:class => "controls" %>
-		  	<p class="help-block">Supporting help text</p>
 		  </div>
 		
 		  <% if devise_mapping.rememberable? -%>
 		    <div id="remember_me">
-		    	<%= f.check_box :remember_me %> 
-		    	<%= f.label :remember_me ,"下次自动登录", :id => "label_remember_me" %>
+		    	<div class="check">
+		    		下次自动登录
+		    		<%= f.check_box :remember_me ,{:checked => false}%>
+		    	 </div>
+		    	 <%= render "devise/shared/links" %>
 		    	<p class="help-block">Supporting help text</p>
 		    </div>
 		  <% end -%>
 		
-		  <div><%= f.submit "Sign in" ,:class => "btn btn-primary" %></div>
+		  <%= f.submit "登录" ,:class => "btn btn-primary" %>
 		
 		
-		  <%= render "devise/shared/links" %>
+		 
 		
 		<% end %>
 	

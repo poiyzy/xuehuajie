@@ -1,5 +1,4 @@
 <h1>个人主页</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,10 +21,9 @@
 
 <p>
 <b>头像：</b>
-<%= @profile.imag_url_path %>
+<%= @profile.image_url %>
 </p>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', home_path %>
 </p>

@@ -1,6 +1,6 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
-    create_table :profiles do |t|
+    create_table :profiles,:force => true do |t|
       t.integer :user_id
       t.string :image_url
       t.string :image_url_middle

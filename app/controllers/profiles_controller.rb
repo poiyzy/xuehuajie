@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit,:update]
 
   def show
     @user = User.find params[:id]
@@ -14,6 +13,8 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = params[:profile]
+    @profile.user = current_user
+    @profile =
     
   end
 end

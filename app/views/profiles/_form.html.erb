@@ -1,51 +1,62 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div id="profile">
+	<%= form_for(@profile, :html => {:class => "well form-horizontal"}) do |f| %>
+	  <% if @profile.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
+	
+	      <ul>
+	      <% @profile.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	<p class="control-group">
+	    <b class="control-label">上传头像</b>
+	</p>
+	<p class="control-group">
+		<b class="control-label">用户名</b>
+	    <%= f.text_field :user_name,:class => "controls"  %>
+	</p>
+	
+	<p class="control-group">
+	    <b class="control-label">性别</b>
+		    <b class="controls" id="gender">
+		    <%= f.radio_button :gender ,"male",:id => "radio1" ,:checked => true %>
+		    <%= f.label "男" ,:for => "radio1"%>
+		    <%= f.radio_button :gender ,"female",:id => "radio2" %>
+		    <%= f.label "女" ,:for => "radio2"%>
+		    	
+		    </b>
+	</p>    
+  
+	<p class="control-group" id="birthday">
+	  <b class="control-label" >生日</b>
+	  <%=f.date_select :birthday ,:start_year => Time.now.year - 100, :end_year => Time.now.year - 8, :default => Time.now - 20.year %>
+	
+	</p>
+	
+	<p class="control-group" id="region">
+	  <b class="control-label">地域</b>
+	      <%= state_select(:user, :state,
+	       :country => :china,
+	       :countries => [:china],
+	       :update => 'city').html_safe %>
+	     <%=  city_select_tag( :city ,{ :country => :china, :state => :beijing}).html_safe %>
+	</p>
+	
+	<p class="control-group">
+	    <b class="control-label">个人简介</b>
+	    <textarea class="controls" id="profile_bio" name="profile[bio]"></textarea>
+	</p>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<p>
-    <%= f.label :gender %><br />
-    <%= f.radio_button :gender ,"male",:id => "radio1" ,:checked => true %>
-    <%= label_tag  "男"%>
-    <%= f.radio_button :gender ,"female",:id => "radio2" %>
-    <%= label_tag  "女"%>
-<p>
-  <b>生日</b>
-  <%=f.date_select :birthday ,:start_year => Time.now.year - 100, :end_year => Time.now.year - 8, :default => Time.now - 20.year %>
-
-</p>
-<p>
-    <%= f.label :user_name ,"姓名"%><br />
-    <%= f.text_field :user_name %>
-</p>
-<p>
-    <%= f.label :bio ,"个人简洁"%><br />
-    <%= f.text_area :bio, :cols => 20, :rows => 10 %>
-</p>
-<p>
-  <b>地域</b>
-      <%= state_select(:user, :state,
-       :country => :china,
-       :countries => [:china],
-       :update => 'city').html_safe %>
-     <%=  city_select_tag( :city ,{ :country => :china, :state => :beijing}).html_safe %>
-    </p>
-
-<p>
-    <%= f.label :image_url_path,"上传头型"%><br />
-  <%= @profile.bio %>
-</p>
-
-  <div class="actions">
-    <%= f.submit "保存" %>
-    <%= f.submit "重置表单", :type => :reset  %>
-  </div>
-<% end %>
+	
+	
+	  <div class="actions">
+	    <%= f.submit "保存" ,:class => "btn btn-primary" ,:id=>"submit"%>
+	    <%= f.submit "重置表单", :type => :reset ,:class => "btn btn-danger",:id=>"reset" %>
+	  </div>
+	<% end %>	
+	
+</div>

@@ -29,7 +29,7 @@ $(function(){
 			"user[password_confirmation]":{
 				required: "请再次输入密码",
 				minlength: "密码长度需大于6",
-				equalTo: "两次密码不同"
+				equalTo: "密码不匹配"
 			}
 		},
 		errorElement:"p",
@@ -64,6 +64,17 @@ $(function(){
 			inputObj.parent().addClass("error");
 		}
 	})
+	
+	$("#user_email").click(function(){
+		if($(this).val() == "邮箱"){
+			$(this).val("");
+		}
+	}).blur(function(){
+		var val = $(this).val();
+		if($(this).val() == ""){
+			$(this).val("邮箱");
+		}
+	});
 	
 	
 	

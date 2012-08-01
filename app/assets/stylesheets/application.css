@@ -68,8 +68,9 @@ form h2{border-bottom: 1px solid #CCC;
 
 #gender input,#gender label{float: left;margin-top: 5px;}
 
-#birthday b,#region b{ margin-right:20px;}
-#birthday select{width:100px;}
+#birthday .control-label,#region .control-label{ margin-right:20px;}
+#birthday select{width:80px;float: left;}
+#birthday .ymd{float: left;margin:5px;}
 
 #region select{width:152px;}
 

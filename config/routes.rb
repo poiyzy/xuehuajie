@@ -1,4 +1,8 @@
 Xuehua::Application.routes.draw do
+  get "users/show"
+
+  get "users/account"
+
   devise_for :users, :skip => [:sessions,:registration]
   devise_scope :user do
     get '/' => 'devise/sessions#new', :as => :root
@@ -14,6 +18,7 @@ Xuehua::Application.routes.draw do
 
   get "/profile" => "profiles#edit", :as => :profiles
   post "/profile" => "profiles#update", :as => :profiles
+  resources :users,:except => :index
   resources :profiles, :only => [:show]
   # The priority is based upon order of creation:
   # first created -> highest priority.

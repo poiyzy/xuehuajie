@@ -19,6 +19,15 @@
         <div id="search">
           <input type="text" name="" value="search" id=""/>
         </div>
+        <div id="top-account">
+          <%=link_to user_name_link(current_user).html_safe, user_path(current_user) %>
+          <%=link_to "个人主页", user_path(current_user) %>
+          <%=link_to "账号管理", user_path(current_user) %>
+          <%=link_to "编辑个人资料", profiles_path %>
+          <%=link_to "私信记录", user_path(current_user) %>
+          <%=link_to "登出", destroy_user_session_path, :method => :delete %>
+                    
+        </div>
      </div>
      <div id="containner">
        <div id="flash">

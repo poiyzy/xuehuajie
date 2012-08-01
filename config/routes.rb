@@ -1,24 +1,24 @@
 Xuehua::Application.routes.draw do
-  get "profiles/show"
+  get "users/show"
 
-  get "profiles/edit"
-
-  get "profiles/update"
+  get "users/account"
 
   devise_for :users, :skip => [:sessions,:registration]
   devise_scope :user do
-    get '/' => 'devise/sessions#new', :as => :new_user_session
+    get '/' => 'devise/sessions#new', :as => :root
     post 'signin' => 'devise/sessions#create', :as => :user_session
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
     get 'signup' => "devise/registrations#new", :as => :new_user_registration
-    post 'signup' => "devise/registrations#new", :as => :user_registration
+    post 'signup' => "devise/registrations#create", :as => :user_registration
     get '/users/cancle' => "devise/registrations#cancel", :as => :cancel_user_registration
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
   resources :posts
   get "/home" => "home#index"
 
-  resource :profile, :only => [:edit,:update]
+  get "/profile" => "profiles#edit", :as => :profiles
+  post "/profile" => "profiles#update", :as => :profiles
+  resources :users,:except => :index
   resources :profiles, :only => [:show]
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,21 +6,21 @@ class HomeControllerTest < ActionController::TestCase
     sign_in @user
   end
   test "should not get index" do
-    get root_path
-    assert_response :success
+    sign_out @user 
+    get :index
+    assert_redirected_to root_path
   end
   
   test "user who first login should get account setting page" do
+    get :index
+    assert_response :success
      
   end
 
   test "user login should get right redirection" do
     get :index
-    assert_redirected_to home_path
+    assert_redirected_to :success
   end
 
-  test "people not sign up should redirect to signup" do
-    
-  end
 
 end

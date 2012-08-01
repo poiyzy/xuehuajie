@@ -10,12 +10,13 @@
 </head>
 <body>
   <div id="bodyWrapper">
-       <div id="flash">
-         <% flash.each do |name, msg| %>
+    <div id="flash">
+      <% flash.each do |name, msg| %>
            <div class="<%= name %>">
              <%= msg %>
            </div>
          <% end %>
+    </div>
        </div>
      <div id="containner">
         <%= yield %>

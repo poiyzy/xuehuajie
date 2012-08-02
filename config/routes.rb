@@ -22,8 +22,10 @@ Xuehua::Application.routes.draw do
     end
   end
   get "/home" => "home#index"
-  get "/profile" => "profiles#edit", :as => :profiles
-  post "/profile" => "profiles#update", :as => :profiles
+  get "/profile" => "profiles#edit", :as => :profile
+  post "/profile" => "profiles#update", :as => :profile
+  get "/start" => "profiles#start", :as => :getting_start
+  post "/start" => "profiles#create", :as => :create_profile
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

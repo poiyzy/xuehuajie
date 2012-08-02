@@ -30,13 +30,13 @@
 
      </div>
      <div id="containner">
-       <div id="flash">
          <% flash.each do |name, msg| %>
+          <div id="flash">
            <div class="<%= name %>">
              <%= msg %>
            </div>
+          </div>
          <% end %>
-       </div>
         <%= yield %>
      </div>
      <div id="footer">
@@ -47,6 +47,7 @@
      		<li><a href="#">客服帮忙</a></li>
      		<li><a href="#">隐私</a></li>
      	</ul>   
+        <%= request.referer %>
      	
        人人网©2012
 北京千橡网景科技发展有限公司：文网文[2009]169号·京ICP证090254号·京公网安备110000000009号·甲测资字11002066·文化部监督电子邮箱：wlwh@vip.sina.com

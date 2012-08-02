@@ -1,2 +1,29 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>个人主页</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>性别</b>
+  <%= @profile.gender %>
+</p>
+<p>
+  <b>生日</b>
+  <%= @profile.birthday %>
+</p>
+<p>
+  <b>姓名:</b>
+  <%= @profile.user_name %>
+</p>
+<p>
+<b>简介绍</b>
+<%= @profile.bio %>
+</p>
+
+
+<p>
+<b>头像：</b>
+<%= @profile.image_url %>
+</p>
+
+
+<%= link_to 'Back', home_path %>
+</p>

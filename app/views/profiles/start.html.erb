@@ -1,0 +1,89 @@
+
+<%= link_to "登出", destroy_user_session_path, :method => :delete %>
+<%= form_for(@profile,:url => create_profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
+  <%= @profile.inspect %>
+ <% if @profile.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
+	
+	      <ul>
+	      <% @profile.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+  <div class="block-1">
+	 <p class="control-group">
+	    <b class="control-label">上传头像</b>
+	</p>
+	<p class="control-group">
+		<b class="control-label">用户名</b>
+	    <%= f.text_field :user_name,:class => "controls"  %>
+	</p>
+	
+	<p class="control-group">
+	    <b class="control-label">性别</b>
+		    <b class="controls" id="gender">
+		    <%= f.radio_button :gender ,"male",:id => "radio1" ,:checked => true %>
+		    <%= f.label "男" ,:for => "radio1"%>
+		    <%= f.radio_button :gender ,"female",:id => "radio2" %>
+		    <%= f.label "女" ,:for => "radio2"%>
+		    	
+		    </b>
+	</p>    
+        <p>
+          <b class="control-label">学校</b>
+          <%= f.text_field :school %>
+        </p>
+ 	<p class="control-group" id="region">
+	  <b class="control-label">地域</b>
+          <%= f.state_select( :state,{
+	       :country => :china,
+	       :countries => [:china],
+               :update => 'city',:selected => @profile.state},:id => "profile_state",:name => "profile[state]").html_safe %>
+             <%=  f.city_select( :city ,{ :country => :china, :state => :beijing,:selected => @profile.city},{:id => :city,:selected => @profile.city}).html_safe %>
+	</p>
+
+  </div>
+<div class="block-2">
+  
+	<p class="control-group" id="birthday">
+          
+	  <b class="control-label" >生日</b>
+	  <%=f.date_select :birthday ,:start_year => Time.now.year - 100, :end_year => Time.now.year - 8, :default => Time.now - 20.year %>
+	</p>
+	
+	
+	<p class="control-group">
+	    <b class="control-label">个人简介</b>
+            <%= f.text_area :bio,:class=> :controls %>
+	</p>
+
+</div>	  
+
+<div class="block-3">
+  <p>
+    兴趣
+  </p>
+  <p>	<p class="control-group">
+	    <b class="control-label"> 隐私</b>
+		    <b class="controls" id="privacy">
+		    <%= f.radio_button :searchable ,"true",:id => "privacy_1" ,:checked => true %>
+		    <%= f.label "允许被陌生人搜索到" ,:for => "privacy_1"%>
+		    <%= f.radio_button :gender ,"false",:id => "privacy_2" %>
+		    <%= f.label "不允许被陌生人搜索到" ,:for => "privacy_2"%>
+		    	
+		    </b>
+	</p>    
+
+    隐私
+  </p>
+  <div class="actions">
+	    <%= f.submit "保存" ,:class => "btn btn-primary" ,:id=>"submit"%>
+	    <%= f.submit "重置表单", :type => :reset ,:class => "btn btn-danger",:id=>"reset" %>
+	  </div>
+</div>
+	  
+	<% end %>	
+

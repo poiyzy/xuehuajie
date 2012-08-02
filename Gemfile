@@ -3,7 +3,12 @@ gem 'rails', '3.2.6'
 
 gem 'devise'
 gem 'sqlite3'
+gem 'omniauth'
 
+gem "omniauth-douban", :git => "git://github.com/xdite/omniauth-douban.git"
+gem "omniauth-weibo", :git => "git://github.com/ywencn/omniauth-weibo.git"
+gem "omniauth-renren", :git => "git://github.com/ywencn/omniauth-renren.git"
+gem 'omniauth-qq-connect'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

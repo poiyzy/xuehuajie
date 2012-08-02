@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   #
   has_one :profile
-
+  has_many :authorizations
   def getting_started?
     self.getting_started
   end

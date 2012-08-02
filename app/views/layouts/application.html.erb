@@ -12,21 +12,22 @@
 <body>
   <div id="bodyWrapper">
      <div id="nav">
-       <div id="brand"><a><img src=""/></a> </div>
+       <div id="brand"><a><img src="/assets/logo.jpg"/></a> </div>
         <div id="">
           <%= yield :navigation %>
         </div> 
         <div id="search">
-          <input type="text" name="" value="search" id=""/>
+          <input type="text" name="" value="search" />
         </div>
         <% if current_user %>
           <div id="top-account">
-            <%= link_to user_name_link(current_user).html_safe, user_path(current_user) %>
+            <%=  user_name_link(current_user).html_safe %>
             <%= link_to "账号管理", account_users_path %>
             <%= link_to "资料", profiles_path  %>
             <%= link_to "登出", destroy_user_session_path, :method => :delete %>
           </div>
         <% end %>
+
      </div>
      <div id="containner">
        <div id="flash">

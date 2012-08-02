@@ -1,3 +1,4 @@
+#coding:utf-8
 class ProfilesController < ApplicationController
 
   def show
@@ -12,9 +13,13 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = params[:profile]
-    @profile.user = current_user
-    @profile =
+    @profile = Profile.new  params[:profile]
+    if current_user.profile.update_attributes params[:profile]
+      flash[:notice] = "个人资料修改成功"
+      redirect_to account_users_path
+    else
+      render :edit
+    end
     
   end
 end

@@ -54,7 +54,3 @@ calendar = function(){
 		sday.val("1");
 	}
 }
-
-
-
-

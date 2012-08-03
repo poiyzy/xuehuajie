@@ -251,6 +251,7 @@ module CityHelper
       countries = options.delete(:countries)
       countries = [:china] if countries.blank?
       update = options.delete(:update)
+      selected = options.delete(:selected)
       
       html = ''
       
@@ -260,7 +261,7 @@ module CityHelper
         options[:onchange] = 'state_updated(this.value);'
       end
       
-      html += self.select_tag id, options_for_select(state_options(country)), options
+      html += self.select_tag id, options_for_select(state_options(country),selected), options
       html += %| <script type='text/javascript'>
       $(document).ready(function(){
         state_updated($('##{id}').val());
@@ -291,7 +292,8 @@ module CityHelper
     def city_select_tag(id, options = {})
       country = options.delete(:country) || :china
       state   = options.delete(:state)      
-      self.select_tag id, options_for_select(city_options(country, state)), options
+      selected = options.delete(:selected)
+      self.select_tag id, options_for_select(city_options(country, state),selected), options
     end
   end
 end

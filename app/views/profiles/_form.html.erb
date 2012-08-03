@@ -4,7 +4,7 @@
 
 
 <div id="profile">
-	<%= form_for(@profile, :html => {:class => "well form-horizontal"}) do |f| %>
+  <%= form_for(@profile,:url => profiles_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
 	  <% if @profile.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -187,19 +187,19 @@
 	
 	<p class="control-group" id="region">
 	  <b class="control-label">地域</b>
-	      <%= state_select(:user, :state,
+          <%= f.state_select( :state,{
 	       :country => :china,
 	       :countries => [:china],
-	       :update => 'city').html_safe %>
-	     <%=  city_select_tag( :city ,{ :country => :china, :state => :beijing}).html_safe %>
+               :update => 'city',:selected => @profile.state},:id => "profile_state",:name => "profile[state]").html_safe %>
+             <%=  f.city_select( :city ,{ :country => :china, :state => :beijing,:selected => @profile.city},{:id => :city,:selected => @profile.city}).html_safe %>
 	</p>
 	
 	<p class="control-group">
 	    <b class="control-label">个人简介</b>
-	    <textarea class="controls" id="profile_bio" name="profile[bio]"></textarea>
+            <%= f.text_area :bio,:class=> :controls %>
 	</p>
 
-	
+
 	
 	  <div class="actions">
 	    <%= f.submit "保存" ,:class => "btn btn-primary" ,:id=>"submit"%>

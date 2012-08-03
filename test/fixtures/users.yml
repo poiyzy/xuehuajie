@@ -6,8 +6,9 @@
 #
 mato:
   email: mato@163.com
-
+  getting_started: false
 # column: value
 #
 tassandar:
   email: tassandar@163.com
+  getting_started: true

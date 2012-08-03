@@ -1,8 +1,11 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :account_setted, :bio, :birthday, :follower_num, :gender, :location, :searchable, :user_name
+  attr_accessible :bio, :birthday,:gender, :location, :searchable, :user_name,:state,:city,:school
+  validates_presence_of :gender,:user_name,:city,:state
   validates_length_of :user_name, :within => 2..30
-  validates_presence_of :gender
+
+  
   
   belongs_to :user
+
   
 end

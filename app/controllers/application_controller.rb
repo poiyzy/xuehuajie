@@ -16,4 +16,15 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+
+  def getting_start!
+    if current_user
+      unless current_user.getting_started?
+        redirect_to getting_start_path  
+      end
+    else
+      authenticate_user!
+    end
+  end
 end

@@ -14,12 +14,18 @@ Xuehua::Application.routes.draw do
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
   resources :posts
+  resources :users,:only => :show do
+    collection  do
+      get :start,  :as => :getting_start
+      post :start ,:as => :getting_start
+      get :account , :as=> :account
+    end
+  end
   get "/home" => "home#index"
-
-  get "/profile" => "profiles#edit", :as => :profiles
-  post "/profile" => "profiles#update", :as => :profiles
-  resources :users,:except => :index
-  resources :profiles, :only => [:show]
+  get "/profile" => "profiles#edit", :as => :profile
+  post "/profile" => "profiles#update", :as => :profile
+  get "/start" => "profiles#start", :as => :getting_start
+  post "/start" => "profiles#create", :as => :create_profile
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

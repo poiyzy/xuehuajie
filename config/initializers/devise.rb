@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "e9669ac4d8ae4b11ebb1412e3f3bb5ebb1c46217e04fa46c8896d4eaecc161c9eacffd842c9dedfc2948e1127fb19803b6a6d74865fd626cd8981fdf4c706c15"
+   config.pepper = "e9669ac4d8ae4b11ebb1412e3f3bb5ebb1c46217e04fa46c8896d4eaecc161c9eacffd842c9dedfc2948e1127fb19803b6a6d74865fd626cd8981fdf4c706c15"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -103,7 +103,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+   config.remember_for = 2.weeks
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -119,7 +119,7 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
+   config.email_regexp = /\A[^@]+@[^@]+\z/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -206,7 +206,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-
+  config.omniauth :douban, '0354f1f7e033d23609fed5e7a09b76a2', '209d6c58b1c5ac27'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

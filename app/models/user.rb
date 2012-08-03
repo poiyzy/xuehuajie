@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  extend OmniauthCallbacks 
+  include OmniauthCallbacks 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable
@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :authorizations
 
-  def getting_started?
+  def self.find_by_email(email)
+    where(:email => email).first
+  end
+   def getting_started?
     self.getting_started
   end
 end

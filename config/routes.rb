@@ -3,7 +3,9 @@ Xuehua::Application.routes.draw do
 
   get "users/account"
 
-  devise_for :users, :skip => [:sessions,:registration]
+  devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
+
+  end
   devise_scope :user do
     get '/' => 'devise/sessions#new', :as => :root
     post 'signin' => 'devise/sessions#create', :as => :user_session
@@ -19,6 +21,7 @@ Xuehua::Application.routes.draw do
       get :start,  :as => :getting_start
       post :start ,:as => :getting_start
       get :account , :as=> :account
+      get :bind_auth, :as => :bindding
     end
   end
   get "/home" => "home#index"

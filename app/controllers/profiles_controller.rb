@@ -37,9 +37,10 @@ class ProfilesController < ApplicationController
   end
 
   def start
-    @profile = Profile.new
-    render :layout => 'devise'
+      @profile = Profile.find_or_initialize_by_user_id(current_user.id)
+      render :layout => 'devise'
   end
+  
 
   def update
     @profile = Profile.new  params[:profile]

@@ -9,6 +9,13 @@ gem "omniauth-weibo", :git => "git://github.com/ywencn/omniauth-weibo.git"
 gem "omniauth-renren", :git => "git://github.com/ywencn/omniauth-renren.git"
 gem 'omniauth-qq-connect'
 
+#图片
+gem 'carrierwave'
+gem 'mime-types'
+gem "mini_magick"
+gem 'sprockets', '~> 2.0'
+gem 'flash_cookie_session'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

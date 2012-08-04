@@ -13,26 +13,13 @@ class ProfilesController < ApplicationController
   end
   
   def create
-    @profile = Profile.new params[:profile]
-    @profile.valid?
-    if current_user.profile
-       if  current_user.profile.update_attributes params[:profile]
-         flash[:notice] = "个人资料修改成功"
-         redirect_to home_path
+    @profile = current_user.build_profile(params[:profile])
+    if @profile.save
          current_user.update_attribute(:getting_started,true)
-       else
-         flash[:alert] = "资料出错，请重新检查"
-         render :start
-       end
+         redirect_to home_path ,:notice =>  "个人资料修改成功"
     else
-      if current_user.profile.create params[:profile]
-         flash[:notice] = "个人资料修改成功"
-         redirect_to home_path
-         current_user.update_attribute(:getting_started,true)
-      else
          flash[:alert] = "资料出错，请重新检查"
          render :start
-      end
     end
   end
 
@@ -43,14 +30,11 @@ class ProfilesController < ApplicationController
   
 
   def update
-    @profile = Profile.new  params[:profile]
-    @profile.valid?
-    if current_user.profile.update_attributes params[:profile]
-      flash[:notice] = "个人资料修改成功"
-      redirect_to account_users_path
+    @profile = current_user.build_profile params[:profile]
+    if @profile.save
+      redirect_to account_users_path, :notice => "个人资料修改成功"
     else
       render :edit
     end
-    
   end
 end

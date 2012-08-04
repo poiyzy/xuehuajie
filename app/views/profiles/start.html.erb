@@ -1,7 +1,6 @@
-
+<%= render :partial => "head" %>
 <%= link_to "登出", destroy_user_session_path, :method => :delete %>
 <%= form_for(@profile,:url => create_profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
-  <%= @profile.inspect %>
  <% if @profile.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -13,26 +12,24 @@
 	      </ul>
 	    </div>
 	  <% end %>
-  <div class="block-1">
-	 <p class="control-group">
-	    <b class="control-label">上传头像</b>
-	</p>
-	<p class="control-group">
-		<b class="control-label">用户名</b>
-	    <%= f.text_field :user_name,:class => "controls"  %>
-	</p>
-	
-	<p class="control-group">
-	    <b class="control-label">性别</b>
-		    <b class="controls" id="gender">
-		    <%= f.radio_button :gender ,"male",:id => "radio1" ,:checked => true %>
-		    <%= f.label "男" ,:for => "radio1"%>
-		    <%= f.radio_button :gender ,"female",:id => "radio2" %>
-		    <%= f.label "女" ,:for => "radio2"%>
-		    	
-		    </b>
-	</p>    
-        <p>
+
+<%= render :partial => "avatar" %>
+<p class="control-group">
+        <b class="control-label">用户名</b>
+    <%= f.text_field :user_name,:class => "controls"  %>
+</p>
+
+<p class="control-group">
+    <b class="control-label">性别</b>
+    <b class="controls" id="gender">
+    <%= f.radio_button :gender ,"male",:id => "radio1" ,:checked => true %>
+    <%= f.label "男" ,:for => "radio1"%>
+    <%= f.radio_button :gender ,"female",:id => "radio2" %>
+    <%= f.label "女" ,:for => "radio2"%>
+        
+    </b>
+  </p>
+          <p>
           <b class="control-label">学校</b>
           <%= f.text_field :school %>
         </p>

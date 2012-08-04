@@ -4,7 +4,7 @@
 
 
 <div id="profile">
-  <%= form_for(@profile,:url => profiles_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
+  <%= form_for(@profile,:url => profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
 	  <% if @profile.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>

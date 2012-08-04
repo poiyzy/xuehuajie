@@ -21,10 +21,18 @@ class ApplicationController < ActionController::Base
   def getting_start!
     if current_user
       unless current_user.getting_started?
-        redirect_to getting_start_path  
+        if current_user.authorizations.all.empty?
+          redirect_to bindding_users_path
+        else
+          redirect_to getting_start_path
+        end
       end
     else
       authenticate_user!
     end
+  end
+
+  def bind_with?(provider)
+    current_user.authorizations.where(:provider => provider).first
   end
 end

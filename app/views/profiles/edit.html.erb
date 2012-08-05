@@ -1,3 +1,4 @@
+<%= render :partial => "head" %>
 <h1>编辑你的个人主页</h1>
 
 
@@ -32,7 +33,7 @@
   </p>
 	<p class="control-group" id="birthday">
 	  <b class="control-label" >生日</b>
-	  	  	<select id="profile_birthday_1i" name="profile[birthday(1i)]">
+	  	  	<select id="profile_birthday_1i" name="profile[birthday(1i)]" default_value="1999">
 			<option value="1912">1912</option>
 			<option value="1913">1913</option>
 			<option value="1914">1914</option>
@@ -112,7 +113,7 @@
 			<option value="1988">1988</option>
 			<option value="1989">1989</option>
 			<option value="1990">1990</option>
-			<option value="1991" selected="selected">1991</option>
+			<option value="1991">1991</option>
 			<option value="1992">1992</option>
 			<option value="1993">1993</option>
 			<option value="1994">1994</option>

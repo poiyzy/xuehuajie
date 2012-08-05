@@ -12,6 +12,19 @@ class ProfilesController < ApplicationController
 
   end
   
+  def upload_avatar
+
+    params[:avatar].content_type = MIME::Types.type_for(params[:avatar].original_filename).to_s
+    @profile = Profile.find_or_initialize_by_user_id(current_user.id)
+    @profile.avatar =  params[:avatar].tempfile 
+    if @profile.save
+      render :json => { 'status' => 1  }.to_json
+    else
+        render :json => { 'status' => 0 }.to_json
+    end
+
+  end
+
   def create
     @profile = current_user.build_profile(params[:profile])
     if @profile.save

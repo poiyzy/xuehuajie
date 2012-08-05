@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803140617) do
+ActiveRecord::Schema.define(:version => 20120804084347) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20120803140617) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "message"
+    t.string   "type"
+    t.string   "object"
+    t.string   "target"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "read"
+  end
+
+  add_index "notifications", ["read"], :name => "index_notifications_on_read"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

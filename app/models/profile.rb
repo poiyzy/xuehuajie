@@ -10,6 +10,7 @@ class Profile < ActiveRecord::Base
 
   attr_accessor :password, :crop_x, :crop_y, :crop_h, :crop_w
   after_update :reprocess_profile, :if => :cropping?
+
   mount_uploader :avatar, AvatarUploader
   
   

@@ -8,28 +8,10 @@ class Profile < ActiveRecord::Base
     record.errors.add attr, '字段存在非法字符#&^*$% ' if value  =~ /[#\$%\^&\*]+/
   end
 
-  attr_accessor :password, :crop_x, :crop_y, :crop_h, :crop_w
-  after_update :reprocess_profile, :if => :cropping?
-
-  mount_uploader :avatar, AvatarUploader
   
-  
+ 
   belongs_to :user
-  
-  
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-  end
+  has_many :avatars
 
-  def profile_geometry
-    img = MiniMagick::Image::read(self.profile.current_path).first
-    @geometry = {:width => img.columns, :height => img.rows }
-  end
-
-  private
-
-  def reprocess_profile
-    self.profile.recreate_versions!
-  end
-  
+    
 end

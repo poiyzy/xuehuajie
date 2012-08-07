@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   #
   has_one :profile
   has_many :authorizations
-
+  has_many :avatars
   def self.find_by_email(email)
     where(:email => email).first
   end

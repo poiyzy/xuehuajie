@@ -8,15 +8,16 @@ gem "omniauth-douban", :git => "git://github.com/xdite/omniauth-douban.git"
 gem "omniauth-weibo", :git => "git://github.com/ywencn/omniauth-weibo.git"
 gem "omniauth-renren", :git => "git://github.com/ywencn/omniauth-renren.git"
 gem 'omniauth-qq-connect'
-gem 'redis-timeline' , :git => "https://github.com/Tassandar/redis-timeline.git"
+gem 'redis-timeline' 
 gem 'redis-namespace'
-
+gem "jquery-fileupload-rails"
 
 #图片
-gem 'carrierwave'
-gem 'mime-types'
-gem "mini_magick"
+gem 'paperclip'
 gem 'sprockets', '~> 2.0'
+gem 'avatars_for_rails'
+gem 'rmagick'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

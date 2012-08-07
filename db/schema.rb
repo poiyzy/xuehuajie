@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120804084347) do
+ActiveRecord::Schema.define(:version => 20120806164426) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20120804084347) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "avatars", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.boolean  "active",            :default => true
+  end
+
+  add_index "avatars", ["user_id"], :name => "index_avatars_on_user_id"
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20120804084347) do
   end
 
   add_index "notifications", ["read"], :name => "index_notifications_on_read"
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "gid"
+    t.string   "description"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "pictures", ["gid"], :name => "index_pictures_on_gid"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

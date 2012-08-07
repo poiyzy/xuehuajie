@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   protected
-
+  
+  def current_profile
+    current_user.profile
+  end
   def after_sign_in_path_for(resource)
         return home_path
   end

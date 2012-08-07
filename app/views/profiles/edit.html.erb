@@ -1,7 +1,9 @@
 <h1>编辑你的个人主页</h1>
 <%= render :partial => "head" %>
-
 <div id="profile">
+
+  <%= render :partial => "avatars/form" %>
+
 <%= form_for(@profile,:url => profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
 	  <% if @profile.errors.any? %>
 	    <div id="error_explanation">
@@ -14,7 +16,6 @@
 	      </ul>
 	    </div>
 	  <% end %>
-<%= render :partial => "avatar" %>
 <p class="control-group">
         <b class="control-label">用户名</b>
     <%= f.text_field :user_name,:class => "controls"  %>

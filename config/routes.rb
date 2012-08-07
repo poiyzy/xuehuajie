@@ -1,4 +1,6 @@
 Xuehua::Application.routes.draw do
+  resources :pictures
+
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
 
   end
@@ -26,8 +28,7 @@ Xuehua::Application.routes.draw do
 
   get "/profile" => "profiles#edit", :as => :profile
   post "/profile" => "profiles#update", :as => :profile
-  post '/upload_avatar' => "profiles#upload_avatar", :as => :upload_avatar
-
+  resources :avatars
   get "/start" => "profiles#start", :as => :getting_start
   post "/start" => "profiles#create", :as => :create_profile
 

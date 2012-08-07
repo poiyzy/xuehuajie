@@ -7,9 +7,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    
     @profile = current_user.profile || Profile.new 
-
   end
   
   def create
@@ -24,10 +22,11 @@ class ProfilesController < ApplicationController
   end
 
   def start
-      @profile = Profile.find_or_initialize_by_user_id(current_user.id)
-      render :layout => 'devise'
+    @profile = Profile.find_or_initialize_by_user_id(current_user.id)
+    render :layout => 'devise'
   end
-  
+
+
 
   def update
     @profile = current_user.build_profile params[:profile]

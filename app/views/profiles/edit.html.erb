@@ -1,8 +1,15 @@
-<%= render :partial => "head" %>
+<% content_for :head do %>
+<%= javascript_include_tag "profile" %>
+<%= javascript_include_tag "picture" %>
+<%= stylesheet_link_tag "avatar" %>
+<% end -%>
+
+
 <h1>编辑你的个人主页</h1>
-
-
 <div id="profile">
+
+  <%= render :partial => "avatars/form" %>
+
 <%= form_for(@profile,:url => profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
 	  <% if @profile.errors.any? %>
 	    <div id="error_explanation">
@@ -15,7 +22,6 @@
 	      </ul>
 	    </div>
 	  <% end %>
-<%= render :partial => "avatar" %>
 <p class="control-group">
         <b class="control-label">用户名</b>
     <%= f.text_field :user_name,:class => "controls"  %>
@@ -33,6 +39,7 @@
   </p>
 	<p class="control-group" id="birthday">
 	  <b class="control-label" >生日</b>
+        </p>
 	  	  	<select id="profile_birthday_1i" name="profile[birthday(1i)]" default_value="1999">
 			<option value="1912">1912</option>
 			<option value="1913">1913</option>

@@ -5,8 +5,12 @@
   <%= javascript_include_tag "application" %>
   <title><%= yield(:page_title).empty? ? "雪花街" : yield(:page_title)  %></title>
   <%= favicon_link_tag "favicon.ico" %>
-	<%=yield :head%>
-
+  <%=yield :head%>
+  <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        <%= yield :javascript %>
+      })
+  </script>
   <%= csrf_meta_tags %>
 </head>
 <body>

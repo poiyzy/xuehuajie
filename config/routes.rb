@@ -1,7 +1,5 @@
 Xuehua::Application.routes.draw do
-  get "users/show"
-
-  get "users/account"
+  resources :pictures
 
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
 
@@ -24,11 +22,22 @@ Xuehua::Application.routes.draw do
       get :bind_auth, :as => :bindding
     end
   end
+  get "/email_confirm" => "home#email_confirm", :as => :password_confirm
+
   get "/home" => "home#index"
+
   get "/profile" => "profiles#edit", :as => :profile
   post "/profile" => "profiles#update", :as => :profile
+  resources :avatars
   get "/start" => "profiles#start", :as => :getting_start
   post "/start" => "profiles#create", :as => :create_profile
+
+  resources :notifications , :only => [:create, :destroy] do
+    collection do
+      get :noty_update , :as => :noty_update
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

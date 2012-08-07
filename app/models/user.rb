@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include OmniauthCallbacks 
+  include Timeline::Actor
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable
@@ -13,11 +14,11 @@ class User < ActiveRecord::Base
   #
   has_one :profile
   has_many :authorizations
-
+  has_many :avatars
   def self.find_by_email(email)
     where(:email => email).first
   end
-   def getting_started?
+  def getting_started?
     self.getting_started
   end
 end

@@ -1,5 +1,19 @@
+<% content_for :head do %>
+<!-- 	<%= javascript_include_tag "lightbox" %> -->
+<!-- 	<%= stylesheet_link_tag "lightbox" %> -->
+	<%= javascript_include_tag "mylightbox" %>
+	<%= stylesheet_link_tag "mylightbox" %>
+<% end %>
 <div id="left">
-	
+	<div class="pin" rel="lightbox" >
+			<a href="#" id="123">123</a>
+			<%= link_to	"<img src='/assets/38.jpg'></a>".html_safe,asset_path("37.jpg"),:rel => "lightbox" %>
+			<div class="tools">
+				<span class="views">views</span>
+				<span class="cmnt"><a href="#">cmnt</a></span>
+				<span class="fav"><a href="#">fav</a></span>
+			</div>
+	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
 		<div class="tools">
@@ -10,39 +24,51 @@
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 	<div class="pin">
 		<img src="/assets/38.jpg">
-		<div class=""></div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class=""></div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class=""></div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class=""></div>
+		<div class="tools">
+			<span class="views">views</span>
+			<span class="cmnt"><a href="#">cmnt</a></span>
+			<span class="fav"><a href="#">fav</a></span>
+		</div>
 	</div>
 </div>
 <div id="right"></div>
@@ -71,8 +97,6 @@ left_and_right = function(){
 			}
 			$("#left").css({"left":left_left,"right":left_right});
 			$("#right").css("right",right_right);
-			
-			var kk = $("#left img").attr("src");			
 }
 
 

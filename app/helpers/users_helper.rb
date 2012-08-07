@@ -1,5 +1,8 @@
 module UsersHelper
   def current_avatar(size= 200)
+    if current_user.avatars.where(:active => true).first.nil?
+      return image_tag(asset_path("37.jpg"),:id => "no_avatar_img")
+    end
     case size
     when 200
       image_tag(current_user.avatars.where(:active => true).first.logo(:user), :id => "current_avatar_img") 

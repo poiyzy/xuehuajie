@@ -7,8 +7,10 @@
 
 
 *{padding: 0px;margin:0px;}
+body{text-align:center}
 #bodyWrapper{background-image: url("/assets/main-bg.jpg");}
 
+#nav{z-index: 999;}
 #brand{width:60px;height:36px;float: left;margin-top: 3px;}
 #notification{float: left;}
 #search{float: right; background: #fff;}

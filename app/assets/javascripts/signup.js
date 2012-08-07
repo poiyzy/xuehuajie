@@ -3,7 +3,8 @@ $(function(){
 		rules:{
 			"user[email]":{
 				required: true,
-				email: true
+				email: true,
+                                remote: '/email_confirm'
 			},
 			"user[password]":{
 				required: true,
@@ -19,7 +20,8 @@ $(function(){
 			
 			"user[email]":{
 				required: "请输入邮箱",
-				email: "请输入一个有效邮箱"
+				email: "请输入一个有效邮箱",
+                                  remote: "邮箱已存在"
 			},
 			
 			"user[password]":{

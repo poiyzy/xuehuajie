@@ -127,7 +127,32 @@ form h2{border-bottom: 1px solid #CCC;
 
 
 
+/*-------------------------start_form---------------------------*/
+.block_cover{ width:600px;overflow: hidden;}
+.all_block{width: 3000px;position:relative;}
+.block{float: left; width:600px;}
 
+
+#start_form{ width:600px; padding-top:33px;padding-bottom: 50px;}
+#start_form .control-group input{ margin-left: 20px;font-size: 11px;color:#888;}
+
+#gender input,#gender label{float: left;margin-top: 5px;}
+
+#birthday .control-label,#region .control-label{ margin-right:20px;}
+#birthday select{width:80px;float: left;}
+#birthday .ymd{float: left;margin:5px;}
+
+#start_form #region select{width:152px;}
+
+#start_form textarea {margin-left:20px;overflow: hidden;width:300px;height:60px;resize: none;}
+
+#start_form .actions{margin-left:160px;}
+#start_form .actions input{width:120px;}
+#reset{margin-left:20px;}
+
+.circle_btn{ background:url("/assets/circle.png") no-repeat;height: 16px;width:16px; display:inline-block;}
+.circle_btn.selected{background-position:0 -16px; }
+/*--------------------------start_form---------------------------*/
 
 
 

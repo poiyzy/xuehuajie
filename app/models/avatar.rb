@@ -1,3 +1,4 @@
+#coding: utf-8
 require 'RMagick'
 
 class Avatar < ActiveRecord::Base
@@ -9,7 +10,7 @@ class Avatar < ActiveRecord::Base
 
   before_post_process :process_precrop
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :name,:updating_logo,:drag,:drag_name
-  validates_attachment_presence :logo, :if => :uploading_file?, :message => I18n.t('avatar.error.no_file')
+  validates_attachment_presence :logo, :if => :uploading_file?, :message => "缺少必要的文件"
   attr_accessible :drag,:logo,:crop_x, :crop_y, :crop_w, :crop_h, :name
   after_validation :precrop_done
 

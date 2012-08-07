@@ -1,4 +1,8 @@
-<%= render :partial => "head" %>
+<% content_for :head do %>
+<%= javascript_include_tag "profile" %>
+<%= javascript_include_tag "picture" %>
+<%= stylesheet_link_tag "avatar" %>
+<% end -%>
 <%= link_to "登出", destroy_user_session_path, :method => :delete %>
 <%= form_for(@profile,:url => create_profile_path, :html => {:class => "well form-horizontal"}, :method => :post) do |f| %>
  <% if @profile.errors.any? %>
@@ -13,7 +17,7 @@
 	    </div>
 	  <% end %>
 
-<%= render :partial => "avatar" %>
+  <%= render :partial => "avatars/form" %>
 <p class="control-group">
         <b class="control-label">用户名</b>
     <%= f.text_field :user_name,:class => "controls"  %>

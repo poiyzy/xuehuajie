@@ -1,3 +1,4 @@
+#coding: utf-8
 class AvatarsController < ApplicationController
   
   #Apply the filters configured in avatars_for_rails initializer
@@ -70,7 +71,9 @@ class AvatarsController < ApplicationController
         render :json => {:name => File.basename(@avatar.logo.queued_for_write[:original].path) }
       end
     else
-      redirect_to avatars_path
+      respond_to do |format|
+        format.js {render :notice => "头像上传成功"}
+      end
     end
   end
 

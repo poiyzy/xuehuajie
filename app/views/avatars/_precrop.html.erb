@@ -24,7 +24,7 @@
     </div>
   </div>
   
-  <%= form_for @avatar, :html => { :multipart => true } do |f| %>
+  <%= form_for @avatar, :html => { :multipart => true, :id => "crop_avatar" },:remote => true do |f| %>
   <div class= "block">
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
       <%= f.hidden_field attribute, :id => attribute %>

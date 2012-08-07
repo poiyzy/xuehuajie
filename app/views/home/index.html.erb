@@ -1,12 +1,35 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= link_to "注销",destroy_user_session_path, :method => :delete %>
-
-<div id="getstart">
-	<div id="red">123
-		<div class="cover"></div>
-	</div>
-	<div id="yellow">345
-		<div class="cover"></div>
-	</div>
+<div id="left">
+	<img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg">
 </div>
+<div id="right"></div>
+
+<script>
+	$(function(){
+	//resize
+		$(window).resize(function(){
+			left_and_right();
+		})
+			left_and_right();
+		
+	
+	})
+
+
+//function	
+left_and_right = function(){
+			var left_left = ($(window).width() - 945) / 2;
+			var left_right = left_left + 195 ;
+			var right_right = left_left;
+			if(left_left > 200){
+				left_left = 200;
+				left_right = 395;
+				right_right = 200;
+			}
+			$("#left").css({"left":left_left,"right":left_right});
+			$("#right").css("right",right_right);
+			
+			var kk = $("#left img").attr("src");			
+}
+
+
+</script>

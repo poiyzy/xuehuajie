@@ -2,12 +2,17 @@
 $(function(){
 	$("#profile_birthday_1i").click(function(){
 		calendar();	
+		alert("A");
 	});
 	
 	
 	$("#profile_birthday_2i").click(function(){
 		calendar();	
 	});
+	
+	$("#profile_birthday_1i option").change(function(){
+		alert("b");
+	})
 	
 })
 

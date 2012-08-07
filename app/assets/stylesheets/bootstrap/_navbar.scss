@@ -127,7 +127,7 @@
     // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
     &:focus, &.focused {
       padding: 5px 10px;
-      color: $grayDark;
+      color: #333;
       text-shadow: 0 1px 0 $white;
       background-color: $navbarSearchBackgroundFocus;
       border: 0;

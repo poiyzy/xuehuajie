@@ -152,7 +152,7 @@ $navbarLinkBackgroundHover:       transparent !default;
 $navbarLinkBackgroundActive:      $navbarBackground !default;
 
 $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
-$navbarSearchBackgroundFocus:     $white !default;
+$navbarSearchBackgroundFocus:     #eee !default;
 $navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
 $navbarSearchPlaceholderColor:    #ccc !default;
 $navbarBrandColor:                $navbarLinkColor !default;

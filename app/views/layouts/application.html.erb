@@ -6,7 +6,7 @@
   <title><%= yield(:page_title).empty? ? "雪花街" : yield(:page_title)  %></title>
   <%= favicon_link_tag "favicon.ico" %>
   <%=yield :head%>
-<script type="text/javascript" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
         <%= yield :javascript %>
       })
@@ -17,24 +17,37 @@
   <div id="bodyWrapper">
      <div id="nav" class="navbar navbar-fixed-top">
      	<div class="navbar-inner">
-   	<div class="container">
-   	<div id="brand"><a href="#"><img src="/assets/logo.jpg"/></a> </div>
-        <div id="top-account">
-                <ul class="nav">
-                  <% if current_user %>
-                        <li><%=user_name_link(current_user).html_safe %></li>
-                        <li><%=link_to "个人主页", user_path(current_user) %></li>
-                        <li><a href="#">通知</a></li>
-                        <li> <a href="#">私信</a></li>        	
-                  <% end %>
-                </ul>
-        <form class="navbar-search pull-right">
-            <input type="text" class="search-query" placeholder="搜索">
-            </form>
-        </div>
-	</div>
-   	 </div>
-   	</div>
+   			 <div class="container">
+   			 	 	<div id="brand"><a href="#"><img src="/assets/logo.jpg"/></a> </div>
+			    	
+			        <div id="top-account">
+			        	<ul class="nav">
+                                          <% if current_user %>
+			        		<li><%=link_to "首页", user_path(current_user) %></li> 
+			        		<li><%=link_to "个人主页", user_path(current_user) %></li>
+			        		<li><%=link_to "关注", user_path(current_user) %></li>       	
+                                          <% end %>
+			        	</ul>
+			        <div id="notification">logo for notification</div>
+			  
+					<div id="account">
+						<img src="#" />
+						<a href="#">chengbapi</a>
+						<ul>
+							<li><a href="#">个人资料</a></li>
+							<li><a href="#">帐号管理</a></li>
+							<li><a href="#">登出</a></li>
+						</ul>
+						<span class="caret"></span>
+					</div>
+					<span class="divider-vertical" style="float: right"></span>
+					 <form class="navbar-search pull-right">
+  						<input type="text" class="search-query" placeholder="搜索">
+					</form>
+			        </div>
+			     </div>
+   			 </div>
+   		</div>
   </div>
 
      <div id="containner">

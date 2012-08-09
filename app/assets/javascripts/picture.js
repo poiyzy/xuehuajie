@@ -1,5 +1,5 @@
-//= require ./picture/avatar
+//= require ./picture/jquery.fileupload-fp
 //= require ./picture/jquery.fileupload-ui
 //= require ./picture/jquery.fileupload
-//= require ./picture/jquery.form
-//= require ./picture/jquery.Jcrop.min
+//= require ./picture/jquery.iframe-transport
+//

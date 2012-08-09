@@ -48,9 +48,9 @@ class Avatar < ActiveRecord::Base
     return if @name.blank? || !@updating_logo.blank?
 
     precrop_path = File.join(Avatar.images_tmp_path,@name)
-
     Rails.logger.warn(precrop_path)
     make_precrop(precrop_path,@crop_x.to_i,@crop_y.to_i,@crop_w.to_i,@crop_h.to_i)
+    Rails.logger.warn(precrop_path)
     self.logo = File.open(precrop_path)
     FileUtils.remove_file(precrop_path)
   end

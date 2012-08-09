@@ -1,3 +1,7 @@
+<% content_for :head do %>
+<%= javascript_include_tag "profile" %>
+<%= javascript_include_tag "picture" %>
+<% end -%>
 <h1>New picture</h1>
 
 <%= render 'form' %>

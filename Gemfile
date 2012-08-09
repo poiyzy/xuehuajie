@@ -17,6 +17,7 @@ gem 'paperclip'
 gem 'sprockets', '~> 2.0'
 gem 'avatars_for_rails'
 gem 'rmagick'
+gem 'mini_magick'
 
 
 group :assets do

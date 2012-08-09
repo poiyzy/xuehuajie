@@ -23,7 +23,7 @@
 			        <div id="top-account">
 			        	<ul class="nav">
                                           <% if current_user %>
-			        		<li><%=link_to "首页", user_path(current_user) %></li> 
+			        		<li><%=link_to "首页", home_path %></li> 
 			        		<li><%=link_to "个人主页", user_path(current_user) %></li>
 			        		<li><%=link_to "关注", user_path(current_user) %></li>       	
                                           <% end %>

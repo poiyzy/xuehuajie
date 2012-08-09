@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :authorizations
   has_many :avatars
+  has_many :pictures
+
   def self.find_by_email(email)
     where(:email => email).first
   end

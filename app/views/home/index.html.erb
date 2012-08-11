@@ -1,6 +1,10 @@
+<%= link_to "上传图片", new_picture_path  %>
 <div id="left">
-	<img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg"><img src="/assets/38.jpg">
+  <%  @pictures.each do |p| %>
+    <%= image_tag p.image.url(:cover) %>
+  <% end %>
 </div>
+
 <div id="right"></div>
 
 <script>

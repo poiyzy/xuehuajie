@@ -36,7 +36,7 @@
 						<ul>
 							<li><a href="#">个人资料</a></li>
 							<li><a href="#">帐号管理</a></li>
-							<li><a href="#">登出</a></li>
+                                                        <li><%= link_to "登出", destroy_user_session_path,:method => :delete%></li>
 						</ul>
 						<span class="caret"></span>
 					</div>

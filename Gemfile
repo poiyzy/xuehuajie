@@ -27,6 +27,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'rails-i18n'
+gem 'acts_as_commentable', '2.0.1'
 group :test do
 
   gem 'turn', :require => false

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_filter :getting_start!, :except => [:start,:bind_auth]
 
   def show
+    @cu = current_user
     @user = User.find(params[:id])
     @profile = @user.profile
   end

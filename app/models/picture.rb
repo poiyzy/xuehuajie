@@ -7,7 +7,7 @@ class Picture < ActiveRecord::Base
   validates_attachment_presence :image
 
   belongs_to :user
-
+  fires :new_picture,:on  => :create, :actor => :user, :subject  => :self
   def to_jq_upload
     {
       "name" => read_attribute(:image),

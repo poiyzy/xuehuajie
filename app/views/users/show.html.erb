@@ -21,9 +21,14 @@
 
 <p>
 <b>头像：</b>
-<%= @profile.image_url %>
+<%= user_avatar(@user) %>
 </p>
-
+<% unless is_current_user?(@user )  %>
+   <p>
+    <b>关注：</b>
+     <%=follow_link(@user)  %>
+  </p>
+<% end %>
 
 <%= link_to 'Back', home_path %>
 </p>

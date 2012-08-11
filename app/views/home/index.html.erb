@@ -1,89 +1,41 @@
+ 
 <% content_for :head do %>
 <!-- 	<%= javascript_include_tag "lightbox" %> -->
 <!-- 	<%= stylesheet_link_tag "lightbox" %> -->
 	<%= javascript_include_tag "mylightbox" %>
 	<%= stylesheet_link_tag "mylightbox" %>
+	<%= javascript_include_tag "picture" %>
+	 
 <% end %>
+ 
+ 
+<%= link_to "上传图片", "#" , :class => "btn btn-primary upload_btn" %>
+<a id="123">123</a>
 <div id="left">
-	<div class="pin" rel="lightbox" >
-			<a href="#" id="123">123</a>
-			<%= link_to	"<img src='/assets/38.jpg'></a>".html_safe,asset_path("37.jpg"),:rel => "lightbox" %>
+  <%  @pictures.each do |p| %>
+  		<div class="pin">
+			<%= link_to	image_tag(p.image.url(:cover)).html_safe,asset_path("37.jpg") %>
 			<div class="tools">
 				<span class="views">views</span>
 				<span class="cmnt"><a href="#">cmnt</a></span>
 				<span class="fav"><a href="#">fav</a></span>
 			</div>
 	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
-	<div class="pin">
-		<img src="/assets/38.jpg">
-		<div class="tools">
-			<span class="views">views</span>
-			<span class="cmnt"><a href="#">cmnt</a></span>
-			<span class="fav"><a href="#">fav</a></span>
-		</div>
-	</div>
+    
+  <% end %>
+ 
 </div>
+
 <div id="right"></div>
 
 <script>
 	$(function(){
+		left_and_right();
 	//resize
 		$(window).resize(function(){
 			left_and_right();
 		})
-			left_and_right();
-		
-	
 	})
-
 
 //function	
 left_and_right = function(){
@@ -97,6 +49,9 @@ left_and_right = function(){
 			}
 			$("#left").css({"left":left_left,"right":left_right});
 			$("#right").css("right",right_right);
+			
+			var left_padding = ($("#left").width() - 750)%250/2 ;
+			$("#left").css({"left":left_left,"right":left_right,"padding-left":left_padding});
 }
 
 

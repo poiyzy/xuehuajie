@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_filter :getting_start!,:except => :email_confirm
   def index
+    @pictures = current_user.pictures
   
   end
   def email_confirm

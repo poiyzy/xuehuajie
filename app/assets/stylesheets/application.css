@@ -36,7 +36,7 @@ body{text-align:center}
 #account ul li a:hover{ color: #fff;}
 
 
-#containner{position:relative;min-width:945px;min-height:800px;margin-top:50px;}
+#containner{position:relative;min-width:945px;min-height:800px;margin-top:45px;}
 
 /*-------------------------signin form---------------------------*/
 
@@ -122,11 +122,17 @@ form h2{border-bottom: 1px solid #CCC;
 
 /*-------------------------home container---------------------------*/
 
-#left{width:auto;min-width:750px;height:600px;background: red;position:absolute;left:0px;right:195px;}
+.upload_btn{}
+
+#left{width:auto;min-width:750px;height:600px;position:absolute;left:0px;right:195px;
+		background: #ddd; border-radius: 3px;}
 #right{width:195px;height: 300px;background: green;position: absolute;right:0px;}
 #left img{ width:224px;height:168px;}
 
-.pin{padding:6px;margin:7px;float: left;}
+.pin{padding:6px;margin:7px;float: left;background: #fff;
+	border-radius:2px;
+	box-shadow:1px 1px 2px #444;
+	}
 
 /*-------------------------home container--------------------------*/
 
@@ -159,6 +165,8 @@ form h2{border-bottom: 1px solid #CCC;
 .circle_btn{ background:url("/assets/circle.png") no-repeat;height: 16px;width:16px; display:inline-block;}
 .circle_btn.selected{background-position:0 -16px; }
 /*--------------------------start_form---------------------------*/
+
+
 
 
 

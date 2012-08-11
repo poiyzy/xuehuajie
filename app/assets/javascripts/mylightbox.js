@@ -1,21 +1,40 @@
 $(function(){
+// showpic
 	$("#123").click(function(){
-		$("#lightboxOverlay").css({"width":$(document).width(),"height":$(document).height()})
-		.fadeIn(300)
-		.click(function(){
-			$(this).fadeOut(300);
-		}).next().fadeIn(500).click(function(){
-			$("#lightboxOverlay,#lightboxcontainner").fadeOut(300);
-		}).children().click(function(){
-			return false;
-		});
+		$("#lightboxOverlay,.showpic").fadeIn(300);
+		$("#lightboxOverlay").click(function(){
+			$("#lightboxOverlay,.showpic").fadeOut(300);
+		})	
+		column();
 	})
 	
 	$(window).resize(function(){
-		var win_height = $(this).height();
-		var win_width = $(this).width();
-		
-		$("#left_column").css("top",(win_height-$("#left_column").height())/2-30);
-		$("#right_column").css("height",win_height-60);
+		column();
+	})
+// uploadpic
+	$(".upload_btn").click(function(){
+		$("#lightboxOverlay,.upload_form").fadeIn(300);
+		$("#lightboxOverlay").click(function(){
+			$("#lightboxOverlay,.upload_form").fadeOut(300);
+		})	
+		column();
 	})
 })
+
+column = function(){
+	var win_height = $(this).height();
+	var win_width = $(this).width();
+	var left_column_height = $(".left_column").height();
+	
+	$("#lightboxOverlay").css({"width":$(document).width(),"height":$(document).height()});
+	$(".left_column").css("top",($(".showpic").height() - left_column_height)/2);
+	$(".right_column").css("height",win_height-60);
+	
+	$(".showpic,.upload_form").each(function(){
+		var width = $(this).width();
+		var height = $(this).height();
+		$(this).css({top:(win_height - height)/2-20,left:(win_width-width)/2});
+	})
+	
+	
+}

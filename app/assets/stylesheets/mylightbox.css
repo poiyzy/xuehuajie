@@ -7,24 +7,28 @@
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
   opacity: 0.85;
   display: none;
+  width:100%;height:100%;
 }
-#lightboxcontainner {
+.showpic{
+  min-width:600px;
+  min-height:300px;
+}
+
+.showpic,.upload_form{
   z-index: 10000;
   position:fixed;
-  width:100%;
   line-height: 0;
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-weight: normal;
-  top:20px;
+  top:0px;
+  padding-top:20px;
   display:none;
 }
-#lightbox{
-  margin: 0 auto;
-  width:auto;
-  position:relative;  
+.upload_form{
+	top:20px !important;
 }
 
-#left_column,#right_column{
+.left_column,.right_column,.upload_form>div{
   display:inline-block;background-color: #fff;-webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -32,8 +36,20 @@
   border-radius: 4px;
   padding:10px;
 }
-#right_column{width:320px;}
-#left_column{position:relative;}
+.right_column{width:320px;}
+.left_column{position:relative;}
+.upload_form>div{
+	width:650px;
+	max-height:550px;
+}
+.upload_form .table{
+	overflow-y: auto;
+	max-height:400px;
+}
+table td.preview{
+	text-align: center;
+}
+
 
 
 

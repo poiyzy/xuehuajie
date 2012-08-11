@@ -15,7 +15,6 @@ class AvatarsController < ApplicationController
   def new
     @avatars = Avatar.all
     @avatar = Avatar.create(params[:avatar])
-
     if params[:drag_name].blank?
       respond_to do |format|
         format.html # new.html.erb
@@ -72,7 +71,7 @@ class AvatarsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js {render :notice => "头像上传成功"}
+        format.js {render :notice => "头像上传成功",:layout => false ,:locals => {:new_id => @avatar.id}}
       end
     end
   end

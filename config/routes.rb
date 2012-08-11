@@ -1,8 +1,5 @@
 Xuehua::Application.routes.draw do
-  resources :pictures
-
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
-
   end
   devise_scope :user do
     get '/' => 'devise/sessions#new', :as => :root
@@ -13,7 +10,7 @@ Xuehua::Application.routes.draw do
     get '/users/cancle' => "devise/registrations#cancel", :as => :cancel_user_registration
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
-  resources :posts
+  resources :pictures
   resources :users,:only => :show do
     collection  do
       get :start,  :as => :getting_start
@@ -21,7 +18,9 @@ Xuehua::Application.routes.draw do
       get :account , :as=> :account
       get :bind_auth, :as => :bindding
     end
+    resources :pictures
   end
+  resources :posts
   get "/email_confirm" => "home#email_confirm", :as => :password_confirm
 
   get "/home" => "home#index"

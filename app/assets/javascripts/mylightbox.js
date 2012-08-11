@@ -7,10 +7,16 @@ $(function(){
 		})	
 		column();
 	})
-	
+	column();
 	$(window).resize(function(){
 		column();
 	})
+//show pic left
+	$(".left_column").hover(function(){
+		$(this).children(".arrow").fadeIn(300);
+	},function(){
+		$(this).children(".arrow").fadeOut(300);
+	});	
 // uploadpic
 	$(".upload_btn").click(function(){
 		$("#lightboxOverlay,.upload_form").fadeIn(300);
@@ -19,15 +25,16 @@ $(function(){
 		})	
 		column();
 	})
+	
+
 })
 
 column = function(){
 	var win_height = $(this).height();
 	var win_width = $(this).width();
 	var left_column_height = $(".left_column").height();
-	
 	$("#lightboxOverlay").css({"width":$(document).width(),"height":$(document).height()});
-	$(".left_column").css("top",($(".showpic").height() - left_column_height)/2);
+	$(".left_column").css("top",($(".showpic").height() - left_column_height)/2-15);
 	$(".right_column").css("height",win_height-60);
 	
 	$(".showpic,.upload_form").each(function(){

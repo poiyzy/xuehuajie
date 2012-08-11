@@ -178,6 +178,7 @@
   display: block;
   float: left;
   margin: 0 10px 0 0;
+  margin-left:15px;
 }
 .navbar .nav.pull-right {
   float: right; // redeclare due to specificity
@@ -193,11 +194,12 @@
   // Vertically center the text given $navbarHeight
   $elementHeight: 20px;
   padding: (($navbarHeight - $elementHeight) / 2 - 1) 10px (($navbarHeight - $elementHeight) / 2 + 1);
-  line-height: 19px;
+  line-height: 23px;
   color: $navbarLinkColor;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);
 }
+
 // Buttons
 .navbar .btn {
   display: inline-block;
@@ -215,7 +217,7 @@
 }
 // Hover
 .navbar .nav > li > a:hover {
-  background-color: $navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover from .active
+  background-color: rgba(255,255,255,0.15);
   color: $navbarLinkColorHover;
   text-decoration: none;
 }

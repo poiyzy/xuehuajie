@@ -27,14 +27,10 @@ class NotificationsController < ApplicationController
       @notice.each do |noty|
       case noty.event_type
       when "follow"
-        @note << {:user_name => noty.actor.profile.user_name,:type => "follow",:user_id => noty.actor_id}
-        Rails.logger.warn @note
-      else
-        nil
+        @note << {:user_name => noty.actor.profile.user_name,:event_type => "follow",:user_id => noty.actor_id}
       end
     end
     respond_to do |format|
-      Rails.logger.warn @note
       format.json {render :json => @note.to_json}
     end
     

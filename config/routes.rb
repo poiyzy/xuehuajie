@@ -1,4 +1,5 @@
 Xuehua::Application.routes.draw do
+  resources :comments,:only => [:create,:show,:destroy,:index]
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
   end
   devise_scope :user do
@@ -10,7 +11,10 @@ Xuehua::Application.routes.draw do
     get '/users/cancle' => "devise/registrations#cancel", :as => :cancel_user_registration
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
-  resources :pictures
+  resources :pictures do
+    post 'create_comment'
+    get 'show_comment'
+  end
   resources :users,:only => :show do
     collection  do
       get :start,  :as => :getting_start

@@ -2,8 +2,7 @@
 <% content_for :head do %>
 <!-- 	<%= javascript_include_tag "lightbox" %> -->
 <!-- 	<%= stylesheet_link_tag "lightbox" %> -->
-	<%= javascript_include_tag "mylightbox" %>
-	<%= stylesheet_link_tag "mylightbox" %>
+
 	<%= javascript_include_tag "picture" %>
 	 
 <% end %>
@@ -16,9 +15,9 @@
   		<div class="pin">
 			<%= link_to	image_tag(p.image.url(:cover)).html_safe,asset_path("37.jpg") %>
 			<div class="tools">
-				<span class="views">views</span>
-				<span class="cmnt"><a href="#">cmnt</a></span>
-				<span class="fav"><a href="#">fav</a></span>
+				<span class="views">333</span>
+				<span class="cmnt"><a href="#">444</a></span>
+				<span class="fav"><a href="#">555</a></span>
 			</div>
 	</div>
     
@@ -28,6 +27,20 @@
 
 <div id="right"></div>
 
+
+
+<!-- cmnt and fav -->
+<script>
+	$(function(){
+		$(".tools .cmnt,.tools .fav").hover(function(){
+			$(this).toggleClass("selected");
+		})
+	})
+</script>
+
+
+
+<!-- left and right resize -->
 <script>
 	$(function(){
 		left_and_right();

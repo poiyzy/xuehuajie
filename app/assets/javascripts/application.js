@@ -3,3 +3,4 @@
 //= require ./jquery-ui
 //= require ./picture
 //= require ./nav
+//= require ./mylightbox

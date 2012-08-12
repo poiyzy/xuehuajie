@@ -37,8 +37,13 @@
   padding:10px;
 }
 .right_column{width:320px;}
-.right_column .cancel{width:30px;height:30px;background-image: url("/assets/fancy_close.png");
-					position: absolute;top: 7px;right:-15px;}
+
+.cancelbox{width:30px;height:30px;background-image: url("/assets/fancy_close1.png");
+					position: absolute;}
+.cancelbox:hover{background-image: url("/assets/fancy_close2.png");cursor:pointer;}
+.showpic .cancelbox{top: 7px;right:-15px;}
+.upload_form .cancelbox{top:7px;right:-15px;}
+
 .left_column{position:relative;}
 .arrow{width:50px;height:45px;position:absolute;opacity: 0.6;display:none;}
 .arrow:hover{opacity: 1;}

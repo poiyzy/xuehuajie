@@ -17,6 +17,9 @@ $(function(){
 	},function(){
 		$(this).children(".arrow").fadeOut(300);
 	});	
+	$(".cancelbox").click(function(){
+		$("#lightboxOverlay").trigger("click");
+	})
 // uploadpic
 	$(".upload_btn").click(function(){
 		$("#lightboxOverlay,.upload_form").fadeIn(300);

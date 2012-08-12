@@ -1,27 +1,58 @@
-<%= link_to "上传图片", new_picture_path  %>
+ 
+<% content_for :head do %>
+<!-- 	<%= javascript_include_tag "lightbox" %> -->
+<!-- 	<%= stylesheet_link_tag "lightbox" %> -->
+
+	<%= javascript_include_tag "picture" %>
+	 
+<% end %>
+ 
+ 
+<%= link_to "上传图片", "#" , :class => "btn btn-primary upload_btn" %>
+<a id="123">123</a>
 <div id="left">
   <%  @pictures.each do |p| %>
-    <%= image_tag p.image.url(:cover) %>
+  		<div class="pin">
+			<%= link_to	image_tag(p.image.url(:cover)).html_safe,asset_path("37.jpg") %>
+			<div class="tools">
+				<span class="views">333</span>
+				<span class="cmnt"><a href="#">444</a></span>
+				<span class="fav"><a href="#">555</a></span>
+			</div>
+	</div>
+    
   <% end %>
+ 
 </div>
 
 <div id="right"></div>
 
+
+
+<!-- cmnt and fav -->
 <script>
 	$(function(){
+		$(".tools .cmnt,.tools .fav").hover(function(){
+			$(this).toggleClass("selected");
+		})
+	})
+</script>
+
+
+
+<!-- left and right resize -->
+<script>
+	$(function(){
+		left_and_right();
 	//resize
 		$(window).resize(function(){
 			left_and_right();
 		})
-			left_and_right();
-		
-	
 	})
-
 
 //function	
 left_and_right = function(){
-			var left_left = ($(window).width() - 945) / 2;
+			var left_left = ($("#containner").width() - 945) / 2;
 			var left_right = left_left + 195 ;
 			var right_right = left_left;
 			if(left_left > 200){
@@ -32,7 +63,8 @@ left_and_right = function(){
 			$("#left").css({"left":left_left,"right":left_right});
 			$("#right").css("right",right_right);
 			
-			var kk = $("#left img").attr("src");			
+			var left_padding = ($("#left").width() - 750)%250/2 ;
+			$("#left").css({"left":left_left,"right":left_right,"padding-left":left_padding});
 }
 
 

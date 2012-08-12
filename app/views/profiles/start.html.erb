@@ -21,10 +21,9 @@
 	    </div>
 	  <% end %>
 
-  <%= render :partial => "avatars/form" %>
-<p class="control-group">
-	
+
 	<div class="block">
+		  <%= render :partial => "avatars/form" %>
 		<p class="control-group">
         <b class="control-label">用户名</b>
    	 	<%= f.text_field :user_name,:class => "controls"  %>
@@ -44,14 +43,16 @@
           <b class="control-label">学校</b>
           <%= f.text_field :school ,:class => "controls"  %>
         </p>
-		<p class="control-group" id="region">
+		<p class="control-group" >
 	  <b class="control-label">地域</b>
-          <%= f.state_select( :state,{
+	  	  <b class="controls" id="region">
+	  	  	<%= f.state_select( :state,{
 	       :country => :china,
 	       :countries => [:china],
            :update => 'city',:selected => @profile.state},:id => "profile_state",:name => "profile[state]").html_safe %>
              <%=  f.city_select( :city ,{ :country => :china, :state => :beijing,:selected => @profile.city},{:id => :city,:selected => @profile.city}).html_safe %>
-	</p>
+	  	  </b>
+     </p>     
 	</div>
 
 
@@ -237,12 +238,11 @@
 	  </div>
 </div>
 
-	
-</div>
-
 
 </div>
 
+
+</div>
 <div class="page_controller">
 	<span class="prev_btn"><a href="#">prev</a></span>
 	<span class="circle_btn"><a href="#">1</a></span>
@@ -250,5 +250,6 @@
 	<span class="circle_btn"><a href="#">3</a></span>
 	<span class="next_btn"><a href="#">next</a></span>
 </div>
+
 
 <% end %>

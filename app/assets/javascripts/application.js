@@ -14,6 +14,7 @@ function notification(){
   $.get('/notifications/noty_update',
       {"type" : "num"},
       function(data){
+        $("#notification .num").html(data);
       },
       "json")
 }

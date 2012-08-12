@@ -1,4 +1,5 @@
 class Picture < ActiveRecord::Base
+  acts_as_commentable
   include Rails.application.routes.url_helpers
   attr_accessible :description, :gid, :name, :image
   has_attached_file :image,

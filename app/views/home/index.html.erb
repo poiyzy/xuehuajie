@@ -13,7 +13,7 @@
 <div id="left">
   <%  @pictures.each do |p| %>
   		<div class="pin">
-			<%= link_to	image_tag(p.image.url(:cover)).html_safe,asset_path("37.jpg") %>
+                  <%= link_to	image_tag(p.image.url(:cover),:no => p.id).html_safe,asset_path("37.jpg") %>
 			<div class="tools">
 				<span class="views">333</span>
 				<span class="cmnt"><a href="#">444</a></span>

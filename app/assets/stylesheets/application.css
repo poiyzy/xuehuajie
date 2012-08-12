@@ -142,9 +142,9 @@ form h2{border-bottom: 1px solid #CCC;
 		padding-left:15px;margin-left:10px;}
 .tools .views{background: url("/assets/eye.png") no-repeat;}
 .tools .cmnt{background: url("/assets/cmnt.png") no-repeat;}
-.tools .cmnt.selected{background-position:0px -13px;}
+.tools .cmnt.selected{background-position:0px -12px;}
 .tools .fav{background: url("/assets/fav.png") no-repeat;}
-.tools .fav.selected{background-position:0px -13px;}
+.tools .fav.selected{background-position:0px -12px;}
 
 /*-----------------------------  pin  ----------------------------*/
 

@@ -8,10 +8,11 @@ gem "omniauth-douban", :git => "git://github.com/xdite/omniauth-douban.git"
 gem "omniauth-weibo", :git => "git://github.com/ywencn/omniauth-weibo.git"
 gem "omniauth-renren", :git => "git://github.com/ywencn/omniauth-renren.git"
 gem 'omniauth-qq-connect'
-gem 'redis-timeline' 
 gem 'redis-namespace'
+gem 'redis'
 gem "jquery-fileupload-rails"
-
+gem "multi_json"
+gem "hashie"
 #图片
 gem 'paperclip'
 gem 'sprockets', '~> 2.0'
@@ -27,6 +28,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'rails-i18n'
+gem 'acts_as_commentable', '2.0.1'
 group :test do
 
   gem 'turn', :require => false

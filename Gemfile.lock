@@ -54,6 +54,7 @@ GEM
     activesupport (3.2.6)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts_as_commentable (2.0.1)
     addressable (2.2.8)
     ansi (1.4.3)
     arel (3.0.2)
@@ -229,12 +230,6 @@ GEM
     redis (2.2.2)
     redis-namespace (1.0.3)
       redis (< 3.0.0)
-    redis-timeline (0.1.6)
-      activemodel (~> 3.2)
-      activesupport (~> 3.2)
-      hashie
-      multi_json
-      redis
     rmagick (2.13.1)
     ruby-prof (0.11.2)
     rubyzip (0.9.9)
@@ -278,6 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable (= 2.0.1)
   avatars_for_rails
   bootstrap-sass
   capistrano
@@ -291,10 +287,12 @@ DEPENDENCIES
   guard-livereload
   guard-spork
   guard-test
+  hashie
   jquery-fileupload-rails
   jquery-rails
   launchy
   mini_magick
+  multi_json
   omniauth
   omniauth-douban!
   omniauth-qq-connect
@@ -303,8 +301,8 @@ DEPENDENCIES
   paperclip
   rails (= 3.2.6)
   rails-i18n
+  redis
   redis-namespace
-  redis-timeline
   rmagick
   ruby-prof
   sass-rails (~> 3.2.3)

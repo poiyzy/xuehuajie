@@ -11,7 +11,7 @@
 }
 .showpic{
   min-width:600px;
-  min-height:300px;
+  min-height:500px;
 }
 
 .showpic,.upload_form{
@@ -23,6 +23,8 @@
   top:0px;
   padding-top:20px;
   display:none;
+  top:0px !important;
+  min-height:500px;
 }
 .upload_form{
 	top:20px !important;

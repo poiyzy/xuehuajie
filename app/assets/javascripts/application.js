@@ -3,6 +3,7 @@
 //= require ./jquery-ui
 //= require ./picture
 //= require ./nav
+//= require ./mylightbox
 //
 //
 
@@ -13,7 +14,7 @@ function notification(){
   $.get('/notifications/noty_update',
       {"type" : "num"},
       function(data){
-        alert(data)
       },
       "json")
 }
+

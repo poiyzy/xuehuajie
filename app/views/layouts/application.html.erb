@@ -48,7 +48,7 @@
 			     </div>
    			 </div>
    		</div>
-  </div>
+  
 
      <div id="containner">
          <% flash.each do |name, msg| %>
@@ -70,7 +70,28 @@
      	</ul>   
        人人网©2012
 北京千橡网景科技发展有限公司：文网文[2009]169号·京ICP证090254号·京公网安备110000000009号·甲测资字11002066·文化部监督电子邮箱：wlwh@vip.sina.com
+     
+     
      </div>
   </div>
+	<div id="lightboxOverlay" ></div>
+	<div class="showpic">
+		<div class="left_column">
+			<img src="/assets/38.jpg">
+			<div class="prev arrow"></div>
+			<div class="next arrow"></div>
+		</div>
+		<div class="right_column">
+			<img src="/assets/38.jpg">
+			<div class="cancelbox"></div>
+		</div>
+	</div>
+	<div class="upload_form">
+		<div>
+			<%=render :partial => 'pictures/upload'%>
+			<div class="cancelbox"></div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

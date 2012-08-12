@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807160705) do
+ActiveRecord::Schema.define(:version => 20120812035859) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -32,15 +32,28 @@ ActiveRecord::Schema.define(:version => 20120807160705) do
 
   add_index "avatars", ["user_id"], :name => "index_avatars_on_user_id"
 
+  create_table "follows", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "follows", ["followed_id"], :name => "index_follows_on_followed_id"
+  add_index "follows", ["follower_id"], :name => "index_follows_on_follower_id"
+
   create_table "notifications", :force => true do |t|
-    t.integer  "user_id"
     t.string   "message"
-    t.string   "type"
-    t.string   "object"
-    t.string   "target"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.boolean  "read"
+    t.string   "subject_type"
+    t.string   "actor_type"
+    t.string   "secondary_subject_type"
+    t.integer  "actor_id"
+    t.integer  "subject_id"
+    t.integer  "secondary_subject_id"
+    t.string   "event_type"
   end
 
   add_index "notifications", ["read"], :name => "index_notifications_on_read"

@@ -7,7 +7,6 @@ class Picture < ActiveRecord::Base
   validates_attachment_presence :image
 
   belongs_to :user
-
   def to_jq_upload
     {
       "name" => read_attribute(:image),

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810164825) do
+ActiveRecord::Schema.define(:version => 20120812035859) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20120810164825) do
 
   create_table "notifications", :force => true do |t|
     t.string   "message"
-    t.string   "type"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.boolean  "read"
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120810164825) do
     t.integer  "actor_id"
     t.integer  "subject_id"
     t.integer  "secondary_subject_id"
+    t.string   "event_type"
   end
 
   add_index "notifications", ["read"], :name => "index_notifications_on_read"

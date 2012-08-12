@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
+  include TimelineNotify::Actor
   include OmniauthCallbacks 
-  include Timeline::Actor
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable
@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def follow(following)
+
     if User.find following
       self.follows.create(:followed_id => following)
     else
@@ -70,6 +71,7 @@ class User < ActiveRecord::Base
   def followers
     self.users_followed
   end
+
   def followings
     self.users_following
   end

@@ -143,10 +143,16 @@ GEM
     json (1.7.4)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    keytar (1.5.3)
+      activesupport
     launchy (2.1.0)
       addressable (~> 2.2.6)
     libwebsocket (0.1.5)
       addressable
+    likeable (0.1.2)
+      activesupport
+      keytar (>= 1.5.2)
+      redis
     listen (0.4.7)
       rb-fchange (~> 0.0.5)
       rb-fsevent (~> 0.9.1)
@@ -291,6 +297,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   launchy
+  likeable
   mini_magick
   multi_json
   omniauth

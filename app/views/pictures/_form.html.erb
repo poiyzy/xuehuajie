@@ -1,3 +1,10 @@
+<% content_for :head do %>
+<%= javascript_include_tag "profile" %>
+<%= javascript_include_tag "picture" %>
+<%= stylesheet_link_tag "avatar" %>
+<% end -%>
+
+
 <%= form_for(@picture) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">

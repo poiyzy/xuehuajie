@@ -13,6 +13,8 @@ gem 'redis'
 gem "jquery-fileupload-rails"
 gem "multi_json"
 gem "hashie"
+gem 'likeable'
+
 #图片
 gem 'paperclip'
 gem 'sprockets', '~> 2.0'

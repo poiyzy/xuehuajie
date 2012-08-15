@@ -1,4 +1,6 @@
+#coding: utf-8
 class Picture < ActiveRecord::Base
+  include Likeable
   acts_as_commentable
   include Rails.application.routes.url_helpers
   attr_accessible :description, :gid, :name, :image

@@ -1,5 +1,11 @@
 Xuehua::Application.routes.draw do
-  resources :comments,:only => [:create,:show,:destroy,:index]
+  resources :albums
+
+  get "like/create"
+
+  get "like/destroy"
+
+  resources :comments,:only => [:destroy,:index]
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
   end
   devise_scope :user do
@@ -22,7 +28,6 @@ Xuehua::Application.routes.draw do
       get :account , :as=> :account
       get :bind_auth, :as => :bindding
     end
-    resources :pictures
   end
   resources :posts
   resources :follows ,:only => :index do

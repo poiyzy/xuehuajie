@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Gid:</b>
-  <%= @picture.gid %>
-</p>
+  <%= user_avatar(@user,75) %>
+  标题：<%= @title %>
+  作者:<%= user_name_link(@user)  %>
+  时间: <%= @picture.created_at %>
+ </p>
 
+ <p>
+   图片：
+   <%= image_tag(@picture.image.url(:presentation)) %>
+ </p>
 <p>
+
   <b>Description:</b>
   <%= @picture.description %>
-</p>
 
+  </br>
+  <b>likes</b>
+  收到了<%= @like_count %>个喜欢
+
+</p>
 <p>
-  <b>User:</b>
-  <%= @picture.user_id %>
+  评论：
+  <% @comments.each do |c| %>
+    <%= user_avatar(c.user,75) %>
+    <%= user_name_link(c.user) %>
+    <%= c.comment %>
+  <% end %>
 </p>
-
 <p>
-  <b>Name:</b>
-  <%= @picture.name %>
+  发表评论
 </p>
 
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>

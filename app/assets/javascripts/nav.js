@@ -7,9 +7,34 @@ $(function(){
 	})
 
 
-//notification
+	//notification
+	notification();
+	window.setInterval("notification()",5000);
+
       $("#notification").click(function(){
+          
+          $(".loading").ajaxStart(function(){
+          	$(this).show();
+          }).ajaxStop(function(){
+          	$(this).hide();
+          });
+          
           //class
+          $(".num").html(0);
+          clear_num();
+      	  $(this).addClass("clicked");
+      	  $(".noti ul").show(); 
+      	  //noti消失
+      	  $("#containner").one("click",function(){
+      	  	$("#notification").removeClass("clicked");
+      	  	$(".noti ul").hide();
+      	  }) 
+      	  
+      	  //cancel funciton
+      	  $(".noti ul .cancel").click(function(){
+      	  	$(this).parent().remove();
+      	  })
+      	    
           //ajax
           $.get('/notifications/noty_update',
             function(data){
@@ -26,7 +51,7 @@ $(function(){
                 if(type == "follow"){
                   action = "关注了你";
                 }
-                alert("<li>"+user_url+ action +"</li>" );
+                alert("<li>"+user_url+ action +"<div class='cancel'></div></li>" );
                 $(".noti ul").prepend("<li>"+user_url+ action +"</li>");
 
               }
@@ -40,3 +65,25 @@ $(function(){
 		$(this).stop().animate({width:"100px"},500);
 	})
 })
+
+
+//function for clear .num
+	clear_num = function(){
+		var num = $(".num").html();
+
+		if(num == "0"){
+			$(".num").hide();
+		}else{
+			$(".num").show();
+		}
+	}
+//notification
+ function notification(){
+	  $.get('/notifications/noty_update',
+	      {"type" : "num"},
+	      function(data){
+	        $("#notification .num").html(data);
+	        clear_num();
+	      },
+	      "json")
+	}

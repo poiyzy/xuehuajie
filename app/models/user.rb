@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
  
   has_many :followings, :foreign_key => "followed_id", :class_name => "Follow", :dependent => :destroy
   has_many :users_following, :through => :followings, :source => :follower
-
+  has_many :albums
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
@@ -34,22 +34,17 @@ class User < ActiveRecord::Base
   def follow(following)
 
     if User.find following
-      self.follows.create(:followed_id => following)
+      return true if self.follows.create(:followed_id => following)
     else
       return false
     end
   end
   
   def unfollow(user_id)
-    if self.has_followed?(user_id)
-      if Follow.where(:followed_id => user_id,:follower_id => self.id).first.destroy
-        true
-      else
-        false
-      end
-    else
-      false
+    if @f =  Follow.where(:followed_id => user_id,:follower_id => self.id).first
+      return true if @f.destroy
     end
+    return false
   end
 
   def has_followed?(user_id)

@@ -2,18 +2,19 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
-
+    @user = User.find(params[:user_id])
+    @albums = @user.albums
+    @profile = @user.profile
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
     end
   end
 
-  # GET /albums/1
-  # GET /albums/1.json
   def show
-    @album = Album.find(params[:id])
+    @user = User.find(params[:user_id])
+    @album = @user.albums.find(params[:id])
+    @profile = @user.profile
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +25,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   # GET /albums/new.json
   def new
-    @album = Album.new
+    @album = current_user.albums.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,7 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(params[:album])
+    @album = current_user.albums.new(params[:album])
 
     respond_to do |format|
       if @album.save
@@ -56,7 +57,7 @@ class AlbumsController < ApplicationController
   # PUT /albums/1
   # PUT /albums/1.json
   def update
-    @album = Album.find(params[:id])
+    @album = current_user.albums.find(params[:id])
 
     respond_to do |format|
       if @album.update_attributes(params[:album])

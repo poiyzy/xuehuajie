@@ -1,13 +1,14 @@
 Xuehua::Application.routes.draw do
-  resources :albums
 
-  get "like/create"
 
-  get "like/destroy"
+  delete  'likes/:resource_name/:resource_id' => "likes#destroy", :as => 'like'
+  post    'likes/:resource_name/:resource_id' => "likes#create",  :as => 'like'
 
   resources :comments,:only => [:destroy,:index]
+
   devise_for :users,:controllers => { :omniauth_callbacks => "omniauth_callbacks" }, :skip => [:sessions,:registration] do
   end
+
   devise_scope :user do
     get '/' => 'devise/sessions#new', :as => :root
     post 'signin' => 'devise/sessions#create', :as => :user_session
@@ -17,9 +18,11 @@ Xuehua::Application.routes.draw do
     get '/users/cancle' => "devise/registrations#cancel", :as => :cancel_user_registration
     get '/users/edit' => "devise/registrations#edit", :as => :edit_user_registration 
   end
-  resources :pictures do
+
+  resources :pictures do 
     post 'create_comment'
     get 'show_comment'
+    get 'get_picture_info'
   end
   resources :users,:only => :show do
     collection  do
@@ -28,12 +31,14 @@ Xuehua::Application.routes.draw do
       get :account , :as=> :account
       get :bind_auth, :as => :bindding
     end
+    resources :albums
   end
-  resources :posts
+
   resources :follows ,:only => :index do
     post :create,:as => :create
     delete :destroy,:as => :destroy
   end
+
   get "/email_confirm" => "home#email_confirm", :as => :password_confirm
 
   get "/home" => "home#index"

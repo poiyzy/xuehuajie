@@ -9,11 +9,18 @@ class FollowsController < ApplicationController
           redirect_to(:back,:notice => "已经成功关注")
         }
         format.js {
-          render :create 
+          render :json => "success"
         } 
         end
     else
-       redirect_to(:back,:notice => "关注失败")
+        respond_to do |format|
+        format.html {  
+          redirect_to(:back,:notice =>  "关注失败")
+        }
+        format.js {
+          render :json => "failed"
+        } 
+        end
     end
   end
 
@@ -25,11 +32,18 @@ class FollowsController < ApplicationController
           redirect_to(:back,:notice => "已经取消关注")
         }
         format.js {
-          render :destroy
+          render :json => "success"
         }
        end
     else
-       redirect_to(:back,:notice => "关注失败")
+       respond_to do |format|
+        format.html {  
+          redirect_to(:back,:notice => "关注失败")
+        }
+        format.js {
+          render :json => "failed"
+        }
+       end
     end 
   end
 

@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
       render :json => "failed"
     end
   end
+
   def show_comment
     @picture = Picture.find(params[:picture_id])
     @offset = params[:offset] || 0
-    @limit = params[:limit] || 10
+    @limit = params[:limit] || 20
     @comments = @picture.comments.limit(@limit).offset(@offset).all
     render :json => @comments.to_json 
   end

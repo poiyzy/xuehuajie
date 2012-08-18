@@ -13,11 +13,16 @@
 <div id="left">
   <%  @pictures.each do |p| %>
   		<div class="pin">
-                  <%= link_to	image_tag(p.image.url(:cover),:no => p.id).html_safe,asset_path("37.jpg") %>
+                  <%= link_to	image_tag(p.image.url(:cover),:no => p.id).html_safe,"#"%>
 			<div class="tools">
-				<span class="views">333</span>
-				<span class="cmnt"><a href="#">444</a></span>
-				<span class="fav"><a href="#">555</a></span>
+                          <span class="views">333</span>
+                          <span class="cmnt"><a href="#"><%= p.comments.count %></a></span>
+                          <%- if current_user.likes? p -%>
+                          <span class="fav"><%= like_link_for p %></span>
+                          <%- else -%>
+                          <span class="fav"><%= unlike_link_for p %></span>
+                          <%- end -%>
+                            喜欢数： <%= p.like_count  %>
 			</div>
 	</div>
     
@@ -25,7 +30,7 @@
  
 </div>
 
-<div id="right"></div>
+<div id="right">  </div>
 
 
 

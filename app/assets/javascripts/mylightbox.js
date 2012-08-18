@@ -1,7 +1,40 @@
 $(function(){
 // showpic
-	$("#123").click(function(){
+	$(".pin img").click(function(){
 		$("#lightboxOverlay,.showpic").fadeIn(300);
+                
+                var num = $(this).attr("no");
+                
+                $.get("",
+                  {"no" : num},
+                  function(data){
+                    var src = data.src;
+                    var comment_count = data.comment_count;
+                    var like_count = data.like_count;
+                    var author_name = data.author_name;
+                    var is_following =  data.is_following;
+                    var description = data.description;
+                    var author_id = data.author_id;
+                    var comments = data.comments;
+
+                    $("<img src="+ src +"/>").prependTo(".left_column");
+
+                    
+                    
+                    result = {:src => @picture.image.url(:presentation),
+              :comment_count => @picture.comments.count,
+              :like_count => @picture.like_count,
+              :author_name => @user.profile.user_name,
+              :author_avatar => @user.avatars.where(:active => true).first.logo(:actor),
+              :is_following => current_user.has_followed(@user),
+              :description => @picture.description,
+              :author_id => @user.id,
+              :comments => @picture.comments.limit(20).all
+  
+                  
+                  },"json")
+
+
 		$("#lightboxOverlay").click(function(){
 			$("#lightboxOverlay,.showpic").fadeOut(300);
 		})	
